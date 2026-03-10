@@ -13,11 +13,10 @@ export const About = () => {
                         loop
                         muted
                         playsInline
-                        className="w-full h-full object-cover opacity-30"
+                        className="w-full h-full object-cover"
                     >
                         <source src={heroVideo} type="video/mp4" />
                     </video>
-                    <div className="absolute inset-0 bg-gradient-to-b from-brand-dark via-transparent to-brand-dark/20" />
                 </div>
 
                 <div className="relative z-10 space-y-10 max-w-5xl mx-auto">

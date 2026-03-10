@@ -5,6 +5,7 @@ import { Hero } from './Hero'
 import { FilterBar } from './FilterBar'
 import { CarCard } from './CarCard'
 import { Skeleton } from '../../components/ui/Skeleton'
+import { PartnerSlider } from '../../components/home/PartnerSlider'
 import type { Car } from '../../types'
 import { DUMMY_CARS } from '../../constants/dummyData'
 
@@ -69,11 +70,10 @@ export const Home = () => {
     };
 
     return (
-        <div className="bg-white min-h-screen">
+        <div className="bg-white min-h-screen overflow-x-hidden">
             <Hero />
 
-
-            <section className="max-w-7xl mx-auto px-6 md:px-12 py-24">
+            <section className="max-w-7xl mx-auto px-6 md:px-12 py-24" data-aos="fade-up">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20">
                     <div className="space-y-4">
                         <div className="inline-flex items-center gap-3 text-brand-gold">
@@ -140,6 +140,10 @@ export const Home = () => {
                     </div>
                 )}
             </section>
+
+            <div data-aos="fade-up">
+                <PartnerSlider />
+            </div>
         </div>
     )
 }
