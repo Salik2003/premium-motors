@@ -35,17 +35,6 @@ export const Hero = () => {
                     Vehicles. Discovery Simplified. Connection Direct.
                 </p>
 
-                <div className="pt-4 animate-in fade-in slide-in-from-bottom-12 duration-1000">
-                    <button
-                        onClick={() => document.getElementById('inventory')?.scrollIntoView({ behavior: 'smooth' })}
-                        className="group flex flex-col items-center gap-4 mx-auto"
-                    >
-                        <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center group-hover:border-brand-gold transition-all duration-500 bg-white/5 backdrop-blur-sm">
-                            <ChevronDown className="text-white group-hover:text-brand-gold transition-colors animate-bounce" size={24} />
-                        </div>
-                        <span className="text-[10px] uppercase tracking-[0.3em] font-black text-white/60 group-hover:text-brand-gold transition-colors">Browse Registry</span>
-                    </button>
-                </div>
             </div>
 
             {/* Side Accents */}

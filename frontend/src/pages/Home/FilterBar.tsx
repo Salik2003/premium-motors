@@ -43,20 +43,22 @@ export const FilterBar = ({ onFilterChange, activeFilters, sortOrder, onSortChan
                     </button>
 
                     <div className="hidden lg:flex items-center gap-6 border-l border-slate-100 ml-4 pl-10">
-                        <span className="text-[9px] uppercase tracking-[0.2em] font-black text-slate-300 whitespace-nowrap">Sort Order:</span>
-                        <div className="relative group min-w-[140px]">
-                            <select
-                                className="appearance-none bg-transparent text-[9px] uppercase tracking-[0.15em] font-black text-slate-700 focus:outline-none cursor-pointer pr-6 group-hover:text-brand-gold transition-colors"
-                                value={sortOrder}
-                                onChange={(e) => onSortChange(e.target.value)}
-                            >
-                                <option value="newest">Latest Arrivals</option>
-                                <option value="price_asc">Price: Ascending</option>
-                                <option value="price_desc">Price: Descending</option>
-                                <option value="mileage_asc">Lowest Mileage</option>
-                            </select>
-                            <ChevronDown size={10} className="absolute -right-0 top-1/2 -translate-y-1/2 pointer-events-none text-slate-300 group-hover:text-brand-gold" />
-                        </div>
+                        <CustomDropdown
+                            label="Sort Order"
+                            options={['Latest Arrivals', 'Price: Ascending', 'Price: Descending', 'Lowest Mileage']}
+                            value={
+                                sortOrder === 'newest' ? 'Latest Arrivals' :
+                                    sortOrder === 'price_asc' ? 'Price: Ascending' :
+                                        sortOrder === 'price_desc' ? 'Price: Descending' :
+                                            sortOrder === 'mileage_asc' ? 'Lowest Mileage' : ''
+                            }
+                            onChange={(val) => {
+                                if (val === 'Latest Arrivals') onSortChange('newest');
+                                else if (val === 'Price: Ascending') onSortChange('price_asc');
+                                else if (val === 'Price: Descending') onSortChange('price_desc');
+                                else if (val === 'Lowest Mileage') onSortChange('mileage_asc');
+                            }}
+                        />
                     </div>
                 </div>
 
