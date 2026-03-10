@@ -24,12 +24,9 @@ export const PartnerSlider = memo(() => {
         return () => clearTimeout(timer);
     }, []);
 
-    // Duplicate partners for seamless loop (2x is enough for most screens)
-    const doublePartners = [...partners, ...partners];
-
     return (
         <section className="py-24 bg-white overflow-hidden border-t border-slate-50">
-            <div className="max-w-7xl mx-auto px-8 mb-16 text-center" data-aos="fade-up">
+            <div className="max-w-7xl mx-auto px-8 mb-16 text-center">
                 <h2 className="text-brand-gold text-[10px] uppercase tracking-[0.5em] font-black italic mb-4">Global Network</h2>
                 <h3 className="text-4xl font-serif text-slate-900">Our Trusted Partners</h3>
             </div>
@@ -39,17 +36,17 @@ export const PartnerSlider = memo(() => {
                 <div className="absolute left-0 top-0 bottom-0 w-20 md:w-60 bg-gradient-to-r from-white via-white/90 to-transparent z-10 pointer-events-none" />
                 <div className="absolute right-0 top-0 bottom-0 w-20 md:w-60 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
 
-                <div className="flex animate-scroll hover:[animation-play-state:paused] whitespace-nowrap py-4 will-change-transform">
-                    {doublePartners.map((item, idx) => (
+                <div className="flex animate-scroll hover:[animation-play-state:paused] whitespace-nowrap py-8 will-change-transform">
+                    {[...partners, ...partners, ...partners, ...partners].map((item, idx) => (
                         <div
                             key={idx}
-                            className="flex items-center justify-center min-w-[200px] md:min-w-[350px] h-24 md:h-32 px-6 md:px-12 group/item"
+                            className="flex items-center justify-center min-w-[250px] md:min-w-[450px] h-28 md:h-40 px-10 md:px-20 group/item"
                         >
                             <img
                                 src={item.logo}
                                 alt={item.name}
                                 loading="lazy"
-                                className="h-10 md:h-14 w-auto object-contain opacity-70 filter group-hover/item:opacity-100 group-hover/item:scale-105 transition-all duration-500 ease-out"
+                                className="h-12 md:h-20 w-auto object-contain opacity-75 filter group-hover/item:opacity-100 group-hover/item:scale-110 transition-all duration-500 ease-out"
                             />
                         </div>
                     ))}

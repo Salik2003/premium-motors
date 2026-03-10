@@ -70,19 +70,19 @@ export const Home = () => {
     };
 
     return (
-        <div className="bg-white min-h-screen overflow-x-hidden">
+        <div className="bg-white min-h-screen">
             <Hero />
 
             <section className="max-w-7xl mx-auto px-6 md:px-12 py-24 overflow-hidden">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20">
-                    <div className="space-y-4" data-aos="fade-right">
+                    <div className="space-y-4">
                         <div className="inline-flex items-center gap-3 text-brand-gold">
                             <span className="w-8 h-[1px] bg-brand-gold" />
                             <p className="text-[10px] uppercase tracking-[0.4em] font-black italic">Curated Selection</p>
                         </div>
                         <h3 className="text-4xl lg:text-5xl font-serif text-slate-900 leading-tight">Elite Showcase <br className="hidden md:block" /> Private Registry</h3>
                     </div>
-                    <div className="max-w-md" data-aos="fade-left">
+                    <div className="max-w-md">
                         <p className="text-slate-500 text-sm md:text-base leading-relaxed font-medium">
                             Explore our hand-picked collection of world-class vehicles. Each asset is verified for mechanical perfection and aesthetic excellence.
                         </p>
@@ -115,7 +115,7 @@ export const Home = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16">
                     {filteredAndSortedCars.map((car) => (
-                        <div key={car.id} data-aos="fade-up">
+                        <div key={car.id} >
                             <CarCard car={car} />
                         </div>
                     ))}
@@ -143,7 +143,7 @@ export const Home = () => {
                 )}
             </section>
 
-            <div data-aos="fade-up">
+            <div>
                 <PartnerSlider />
             </div>
         </div>
