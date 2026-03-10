@@ -4,9 +4,9 @@ import heroVideo from '../../assets/hero-sec-video.mp4'
 export const About = () => {
 
     return (
-        <div className="pt-24 min-h-screen bg-white">
+        <div className="min-h-screen bg-white">
             {/* Hero */}
-            <section className="relative px-8 py-20 md:py-32 text-center bg-brand-dark overflow-hidden">
+            <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center px-8 text-center bg-brand-dark overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <video
                         autoPlay

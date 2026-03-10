@@ -2,7 +2,7 @@ import heroVideo from '../../assets/hero-sec-video.mp4'
 
 export const Hero = () => {
     return (
-        <section className="relative h-[85vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-brand-dark px-6 pt-24">
+        <section className="relative h-[90vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-brand-dark px-6 pt-24">
             <div className="absolute inset-0 z-0">
                 <video
                     autoPlay
@@ -13,8 +13,6 @@ export const Hero = () => {
                 >
                     <source src={heroVideo} type="video/mp4" />
                 </video>
-                <div className="absolute inset-0 bg-black/60 md:bg-black/50" />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-black/70" />
             </div>
 
             <div className="relative z-10 max-w-5xl text-center space-y-6 md:space-y-8 lg:space-y-10">
