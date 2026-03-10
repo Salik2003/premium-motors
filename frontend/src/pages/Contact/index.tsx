@@ -1,0 +1,125 @@
+import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react'
+import { Button } from '../../components/ui/Button'
+import { Input } from '../../components/ui/Input'
+
+export const Contact = () => {
+    return (
+        <div className="pt-24 min-h-screen bg-white">
+            <section className="max-w-7xl mx-auto px-8 py-32">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
+                    {/* Info */}
+                    <div className="space-y-16">
+                        <div className="space-y-6">
+                            <h2 className="text-brand-gold text-[10px] uppercase tracking-[0.6em] font-bold italic">Contact Concierge</h2>
+                            <h1 className="text-5xl md:text-7xl font-serif text-slate-900 leading-tight">Let's Discuss Your <br /> Next <span className="text-brand-gold italic">Acquisition</span>.</h1>
+                            <p className="text-slate-400 text-sm uppercase tracking-widest font-bold max-w-md opacity-80 leading-relaxed">
+                                Our dedicated automotive consultants are available <br />
+                                to assist you with every detail of your inquiry.
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <div className="space-y-4">
+                                <div className="p-4 bg-slate-50 w-fit rounded-2xl flex items-center justify-center text-brand-gold shadow-sm">
+                                    <Phone size={24} strokeWidth={1.5} />
+                                </div>
+                                <div className="space-y-1">
+                                    <p className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Direct Line</p>
+                                    <p className="text-xl font-serif text-slate-900">+92 313 2723938</p>
+                                </div>
+                            </div>
+
+                            <div className="space-y-4">
+                                <div className="p-4 bg-slate-50 w-fit rounded-2xl flex items-center justify-center text-brand-gold shadow-sm">
+                                    <MessageCircle size={24} strokeWidth={1.5} />
+                                </div>
+                                <div className="space-y-1">
+                                    <p className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">WhatsApp Concierge</p>
+                                    <p className="text-xl font-serif text-slate-900">Available 24/7</p>
+                                </div>
+                            </div>
+
+                            <div className="space-y-4">
+                                <div className="p-4 bg-slate-50 w-fit rounded-2xl flex items-center justify-center text-brand-gold shadow-sm">
+                                    <Mail size={24} strokeWidth={1.5} />
+                                </div>
+                                <div className="space-y-1">
+                                    <p className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Email Desk</p>
+                                    <p className="text-xl font-serif text-slate-900">sales@premium.pk</p>
+                                </div>
+                            </div>
+
+                            <div className="space-y-4">
+                                <div className="p-4 bg-slate-50 w-fit rounded-2xl flex items-center justify-center text-brand-gold shadow-sm">
+                                    <MapPin size={24} strokeWidth={1.5} />
+                                </div>
+                                <div className="space-y-1">
+                                    <p className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Showroom</p>
+                                    <p className="text-sm font-serif text-slate-900 leading-tight">Gulberg III, Main Boulevard, Lahore, Pakistan</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="bg-slate-900 p-10 rounded-[2.5rem] text-white space-y-8">
+                            <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold text-brand-gold italic">Operating Hours</h4>
+                            <div className="space-y-4">
+                                <div className="flex justify-between border-b border-white/5 pb-2">
+                                    <span className="text-[9px] uppercase tracking-widest text-white/40 font-bold">Mon - Fri</span>
+                                    <span className="text-[9px] uppercase tracking-widest font-bold">09:00 - 20:00</span>
+                                </div>
+                                <div className="flex justify-between border-b border-white/5 pb-2">
+                                    <span className="text-[9px] uppercase tracking-widest text-white/40 font-bold">Saturday</span>
+                                    <span className="text-[9px] uppercase tracking-widest font-bold">10:00 - 18:00</span>
+                                </div>
+                                <div className="flex justify-between">
+                                    <span className="text-[9px] uppercase tracking-widest text-white/40 font-bold">Sunday</span>
+                                    <span className="text-[9px] uppercase tracking-widest font-bold text-brand-gold">Appointment Only</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Form */}
+                    <div className="bg-white p-12 lg:p-16 rounded-[3rem] border border-slate-100 shadow-2xl shadow-slate-200/50 space-y-12">
+                        <div className="space-y-2">
+                            <h3 className="text-3xl font-serif text-slate-900">Send an Inquiry</h3>
+                            <p className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Expected response time: Under 2 hours</p>
+                        </div>
+                        <form className="space-y-10">
+                            <Input label="Your Full Name" placeholder="EX: TAHIM KHAN" />
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                                <Input label="Email Address" placeholder="KHAN@CLIENT.COM" />
+                                <Input label="Phone Number" placeholder="+92 3XX XXXXXXX" />
+                            </div>
+                            <div className="space-y-3">
+                                <label className="block text-[10px] uppercase tracking-widest text-slate-400 font-bold">Message</label>
+                                <textarea
+                                    rows={5}
+                                    className="w-full bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl text-xs text-slate-700 font-bold focus:outline-none focus:border-brand-gold appearance-none uppercase tracking-widest placeholder:text-slate-300"
+                                    placeholder="TELL US ABOUT THE VEHICLE OR PLAN YOU ARE INTERESTED IN"
+                                />
+                            </div>
+                            <Button size="lg" className="w-full h-16 text-[10px] uppercase tracking-[0.3em]" icon={Send}>
+                                Dispatch Message
+                            </Button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            {/* Map */}
+            <section className="h-[500px] w-full border-t border-slate-100 overflow-hidden relative">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108914.88126765792!2d74.19548679726563!3d31.520369599999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391901a432b1356b%3A0x66849ca477444850!2sGulberg%20III%2C%20Lahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1710000000000!5m2!1sen!2s"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    className="grayscale contrast-125 opacity-70"
+                    referrerPolicy="no-referrer-when-downgrade"
+                />
+            </section>
+        </div>
+    )
+}
