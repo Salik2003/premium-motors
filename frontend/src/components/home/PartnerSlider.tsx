@@ -40,13 +40,13 @@ export const PartnerSlider = memo(() => {
                     {[...partners, ...partners, ...partners, ...partners].map((item, idx) => (
                         <div
                             key={idx}
-                            className="flex items-center justify-center min-w-[200px] md:min-w-[300px] h-28 md:h-40 px-6 md:px-10 group/item"
+                            className="flex items-center justify-center min-w-[140px] md:min-w-[300px] h-20 md:h-40 px-4 md:px-10 group/item"
                         >
                             <img
                                 src={item.logo}
                                 alt={item.name}
                                 loading="lazy"
-                                className="h-12 md:h-20 w-auto object-contain opacity-75 filter group-hover/item:opacity-100 group-hover/item:scale-110 transition-all duration-500 ease-out"
+                                className="h-8 md:h-20 w-auto object-contain opacity-75 filter group-hover/item:opacity-100 group-hover/item:scale-110 transition-all duration-500 ease-out"
                             />
                         </div>
                     ))}
