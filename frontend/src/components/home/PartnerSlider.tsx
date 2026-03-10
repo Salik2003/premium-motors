@@ -1,23 +1,31 @@
-import { useEffect } from 'react'
+import { useEffect, memo } from 'react'
 import AOS from 'aos'
 
+import dnataLogo from '../../assets/trust/dnata.jpg'
+import emiratesLogo from '../../assets/trust/emirates.png'
+import hondaLogo from '../../assets/trust/honda.png'
+import roverLogo from '../../assets/trust/rover.png'
+import toyotaLogo from '../../assets/trust/toyota.png'
+
 const partners = [
-    { name: 'Emirates', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Emirates_logo.svg/512px-Emirates_logo.svg.png' },
-    { name: 'dnata', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Dnata_logo.svg/512px-Dnata_logo.svg.png' },
-    { name: 'marhaba', logo: 'https://seeklogo.com/images/M/marhaba-logo-39CC71D780-seeklogo.com.png' },
-    { name: 'Mall of the Emirates', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/52/Mall_of_the_Emirates_logo.svg/512px-Mall_of_the_Emirates_logo.svg.png' },
-    { name: 'Bvlgari', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Bvlgari_logo.svg/512px-Bvlgari_logo.svg.png' },
-    { name: 'Burj Al Arab', logo: 'https://upload.wikimedia.org/wikipedia/en/3/30/Burj_Al_Arab_Logo.svg' },
+    { name: 'Emirates', logo: emiratesLogo },
+    { name: 'dnata', logo: dnataLogo },
+    { name: 'Honda', logo: hondaLogo },
+    { name: 'Rover', logo: roverLogo },
+    { name: 'Toyota', logo: toyotaLogo },
 ]
 
-export const PartnerSlider = () => {
-    // Refresh AOS on mount to ensure this section handles visibility correctly
+export const PartnerSlider = memo(() => {
+    // Refresh AOS once on mount
     useEffect(() => {
-        AOS.refresh();
+        const timer = setTimeout(() => {
+            AOS.refresh();
+        }, 100);
+        return () => clearTimeout(timer);
     }, []);
 
-    // Duplicate partners for seamless loop
-    const doublePartners = [...partners, ...partners, ...partners];
+    // Duplicate partners for seamless loop (2x is enough for most screens)
+    const doublePartners = [...partners, ...partners];
 
     return (
         <section className="py-24 bg-white overflow-hidden border-t border-slate-50">
@@ -28,23 +36,20 @@ export const PartnerSlider = () => {
 
             <div className="relative group">
                 {/* Gradient Masks */}
-                <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
-                <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
+                <div className="absolute left-0 top-0 bottom-0 w-20 md:w-60 bg-gradient-to-r from-white via-white/90 to-transparent z-10 pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-20 md:w-60 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
 
-                <div className="flex animate-scroll hover:[animation-play-state:paused] whitespace-nowrap py-4">
+                <div className="flex animate-scroll hover:[animation-play-state:paused] whitespace-nowrap py-4 will-change-transform">
                     {doublePartners.map((item, idx) => (
                         <div
                             key={idx}
-                            className="flex items-center justify-center min-w-[200px] md:min-w-[300px] h-24 md:h-32 px-6 md:px-12 group/item"
+                            className="flex items-center justify-center min-w-[200px] md:min-w-[350px] h-24 md:h-32 px-6 md:px-12 group/item"
                         >
                             <img
                                 src={item.logo}
                                 alt={item.name}
-                                className="h-8 md:h-12 w-auto object-contain opacity-80 filter group-hover/item:opacity-100 group-hover/item:scale-110 transition-all duration-700 ease-out"
-                                onError={(e) => {
-                                    // Fallback for broken logos
-                                    (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(item.name)}&background=f1f5f9&color=cbd5e1&size=128`;
-                                }}
+                                loading="lazy"
+                                className="h-10 md:h-14 w-auto object-contain opacity-70 filter group-hover/item:opacity-100 group-hover/item:scale-105 transition-all duration-500 ease-out"
                             />
                         </div>
                     ))}
@@ -52,4 +57,6 @@ export const PartnerSlider = () => {
             </div>
         </section>
     )
-}
+})
+
+PartnerSlider.displayName = 'PartnerSlider';

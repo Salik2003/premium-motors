@@ -114,8 +114,8 @@ export const Home = () => {
                 ) : null}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16">
-                    {filteredAndSortedCars.map((car, i) => (
-                        <div key={car.id} data-aos="fade-up" data-aos-delay={i * 50}>
+                    {filteredAndSortedCars.map((car) => (
+                        <div key={car.id} data-aos="fade-up">
                             <CarCard car={car} />
                         </div>
                     ))}
