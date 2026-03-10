@@ -1,4 +1,10 @@
 import type { Car } from '../types';
+import porsche from '../assets/porsche.jpg';
+import bmw from '../assets/bmw.jpeg';
+import mercedes from '../assets/mers.jpg';
+import bentley from '../assets/bentl.avif';
+import lamborghini from '../assets/urus.jpeg';
+import audi from '../assets/audi.avif';
 
 export const DUMMY_CARS: Car[] = [
     {
@@ -11,7 +17,7 @@ export const DUMMY_CARS: Car[] = [
         fuel_type: 'Petrol',
         transmission: 'Automatic',
         description: 'A pristine condition Porsche 911 Carrera S. Ceramic brakes, Sport Chrono package, and custom leather interior.',
-        images: ['https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80'],
+        images: [porsche],
         status: 'active',
         is_featured: true,
         created_at: new Date().toISOString(),
@@ -57,7 +63,7 @@ export const DUMMY_CARS: Car[] = [
         fuel_type: 'Electric',
         transmission: 'Automatic',
         description: 'Brand new fully electric performance sedan. Future of mobility combined with Audi legacy.',
-        images: ['https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&q=80'],
+        images: [audi],
         status: 'active',
         is_featured: false,
         created_at: new Date().toISOString(),
@@ -80,7 +86,7 @@ export const DUMMY_CARS: Car[] = [
         fuel_type: 'Petrol',
         transmission: 'Automatic',
         description: 'The ultimate luxury sedan. Featuring the latest MBUX system and Burmester high-end 4D surround sound.',
-        images: ['https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80'],
+        images: [mercedes],
         status: 'active',
         is_featured: true,
         created_at: new Date().toISOString(),
@@ -98,12 +104,12 @@ export const DUMMY_CARS: Car[] = [
         title: 'Lamborghini Urus Performante',
         model: 'Urus',
         year: 2024,
-        price: 125000000,
+        price: 12500000,
         mileage: 50,
         fuel_type: 'Petrol',
         transmission: 'Automatic',
         description: 'The absolute pinnacle of performance SUVs. Giallo Auge exterior with black alcantara interior.',
-        images: ['https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&q=80'],
+        images: [lamborghini],
         status: 'active',
         is_featured: true,
         created_at: new Date().toISOString(),
@@ -126,7 +132,7 @@ export const DUMMY_CARS: Car[] = [
         fuel_type: 'Petrol',
         transmission: 'Automatic',
         description: 'The definitive Grand Tourer. Elegant and powerful, this V8 model offers exceptional craftsmanship.',
-        images: ['https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&q=80'],
+        images: [bentley],
         status: 'active',
         is_featured: false,
         created_at: new Date().toISOString(),
@@ -149,7 +155,7 @@ export const DUMMY_CARS: Car[] = [
         fuel_type: 'Electric',
         transmission: 'Automatic',
         description: 'The next generation of luxury electric mobility. Features the magnificent theater screen for rear occupants.',
-        images: ['https://images.unsplash.com/photo-1617531653332-bd46c24f2068?auto=format&fit=crop&q=80'],
+        images: [bmw],
         status: 'active',
         is_featured: true,
         created_at: new Date().toISOString(),
