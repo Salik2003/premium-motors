@@ -17,11 +17,11 @@ export const Hero = () => {
 
             <div className="relative z-10 max-w-5xl text-center space-y-6 md:space-y-8 lg:space-y-10">
                 <div className="space-y-4 md:space-y-6">
-                    <div className="inline-flex items-center gap-3 px-4 py-1.5 md:py-2 bg-brand-gold/20 backdrop-blur-md border border-brand-gold/30 rounded-full animate-in fade-in slide-in-from-bottom-4 duration-700">
+                    <div className="inline-flex items-center gap-3 px-4 py-1.5 md:py-2 bg-brand-gold/20 backdrop-blur-md border border-brand-gold/30 rounded-full" data-aos="fade-down">
                         <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse shadow-[0_0_10px_rgba(197,160,89,0.8)]" />
                         <h2 className="text-white text-[7px] md:text-[9px] uppercase tracking-[0.4em] md:tracking-[0.5em] font-black italic">The Gold Standard of Pakistan</h2>
                     </div>
-                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif text-white leading-[1.2] tracking-tight animate-in fade-in slide-in-from-bottom-8 duration-1000 drop-shadow-2xl">
+                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif text-white leading-[1.2] tracking-tight drop-shadow-2xl" data-aos="fade-up">
                         Acquire Your <br />
                         <span className="text-brand-gold italic">Automotive</span> Masterpiece
                     </h1>

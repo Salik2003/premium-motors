@@ -1,13 +1,21 @@
+import { useEffect } from 'react'
+import AOS from 'aos'
+
 const partners = [
-    { name: 'Emirates', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Emirates_logo.svg/1024px-Emirates_logo.svg.png' },
-    { name: 'dnata', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Dnata_logo.svg/1024px-Dnata_logo.svg.png' },
-    { name: 'marhaba', logo: 'https://www.marhabaservices.com/assets/img/marhaba-logo.svg' },
-    { name: 'Mall of the Emirates', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/52/Mall_of_the_Emirates_logo.svg/1200px-Mall_of_the_Emirates_logo.svg.png' },
-    { name: 'Bvlgari', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Bvlgari_logo.svg/1280px-Bvlgari_logo.svg.png' },
+    { name: 'Emirates', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Emirates_logo.svg/512px-Emirates_logo.svg.png' },
+    { name: 'dnata', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Dnata_logo.svg/512px-Dnata_logo.svg.png' },
+    { name: 'marhaba', logo: 'https://seeklogo.com/images/M/marhaba-logo-39CC71D780-seeklogo.com.png' },
+    { name: 'Mall of the Emirates', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/52/Mall_of_the_Emirates_logo.svg/512px-Mall_of_the_Emirates_logo.svg.png' },
+    { name: 'Bvlgari', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Bvlgari_logo.svg/512px-Bvlgari_logo.svg.png' },
     { name: 'Burj Al Arab', logo: 'https://upload.wikimedia.org/wikipedia/en/3/30/Burj_Al_Arab_Logo.svg' },
 ]
 
 export const PartnerSlider = () => {
+    // Refresh AOS on mount to ensure this section handles visibility correctly
+    useEffect(() => {
+        AOS.refresh();
+    }, []);
+
     // Duplicate partners for seamless loop
     const doublePartners = [...partners, ...partners, ...partners];
 
@@ -33,6 +41,10 @@ export const PartnerSlider = () => {
                                 src={item.logo}
                                 alt={item.name}
                                 className="h-8 md:h-12 w-auto object-contain opacity-80 filter group-hover/item:opacity-100 group-hover/item:scale-110 transition-all duration-700 ease-out"
+                                onError={(e) => {
+                                    // Fallback for broken logos
+                                    (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(item.name)}&background=f1f5f9&color=cbd5e1&size=128`;
+                                }}
                             />
                         </div>
                     ))}

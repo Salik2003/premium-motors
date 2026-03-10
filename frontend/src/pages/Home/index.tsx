@@ -73,16 +73,16 @@ export const Home = () => {
         <div className="bg-white min-h-screen overflow-x-hidden">
             <Hero />
 
-            <section className="max-w-7xl mx-auto px-6 md:px-12 py-24" data-aos="fade-up">
+            <section className="max-w-7xl mx-auto px-6 md:px-12 py-24 overflow-hidden">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20">
-                    <div className="space-y-4">
+                    <div className="space-y-4" data-aos="fade-right">
                         <div className="inline-flex items-center gap-3 text-brand-gold">
                             <span className="w-8 h-[1px] bg-brand-gold" />
                             <p className="text-[10px] uppercase tracking-[0.4em] font-black italic">Curated Selection</p>
                         </div>
                         <h3 className="text-4xl lg:text-5xl font-serif text-slate-900 leading-tight">Elite Showcase <br className="hidden md:block" /> Private Registry</h3>
                     </div>
-                    <div className="max-w-md">
+                    <div className="max-w-md" data-aos="fade-left">
                         <p className="text-slate-500 text-sm md:text-base leading-relaxed font-medium">
                             Explore our hand-picked collection of world-class vehicles. Each asset is verified for mechanical perfection and aesthetic excellence.
                         </p>
@@ -114,8 +114,10 @@ export const Home = () => {
                 ) : null}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16">
-                    {filteredAndSortedCars.map((car) => (
-                        <CarCard key={car.id} car={car} />
+                    {filteredAndSortedCars.map((car, i) => (
+                        <div key={car.id} data-aos="fade-up" data-aos-delay={i * 50}>
+                            <CarCard car={car} />
+                        </div>
                     ))}
                 </div>
 

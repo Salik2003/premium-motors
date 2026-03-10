@@ -23,7 +23,7 @@ export const Navbar = () => {
 
     return (
         <nav className="fixed top-0 left-0 right-0 z-[100] border-b border-slate-100 bg-white md:bg-white/90 md:backdrop-blur-md px-4 md:px-12 py-3 flex items-center justify-between transition-all duration-300">
-            <Link to="/" className="flex items-center gap-2 group relative z-[110]">
+            <Link to="/" className="flex items-center gap-2 group relative z-[110]" data-aos="fade-right">
                 <div className="w-8 h-8 md:w-10 md:h-10 transition-transform duration-500 group-hover:scale-110">
                     <img src={pmLogo} alt="Premium Motors Logo" className="w-full h-full object-contain" />
                 </div>
@@ -35,10 +35,12 @@ export const Navbar = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex gap-10 text-[10px] uppercase tracking-[0.2em] font-black">
-                {navLinks.map((item) => (
+                {navLinks.map((item, i) => (
                     <Link
                         key={item.path}
                         to={item.path}
+                        data-aos="fade-down"
+                        data-aos-delay={i * 100}
                         className={`transition-all duration-300 hover:text-brand-gold relative py-1 ${isActive(item.path) ? 'text-brand-gold' : 'text-slate-500'
                             }`}
                     >
@@ -50,7 +52,7 @@ export const Navbar = () => {
                 ))}
             </div>
 
-            <div className="hidden lg:flex items-center gap-6">
+            <div className="hidden lg:flex items-center gap-6" data-aos="fade-left">
                 <Link to="/contact" className="text-[10px] bg-brand-dark text-white uppercase tracking-widest font-black px-8 py-3.5 rounded-full hover:bg-slate-800 transition-all shadow-xl shadow-slate-200">
                     Inquire Now
                 </Link>
