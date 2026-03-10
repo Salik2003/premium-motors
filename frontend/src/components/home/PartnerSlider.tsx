@@ -40,7 +40,7 @@ export const PartnerSlider = memo(() => {
                     {[...partners, ...partners, ...partners, ...partners].map((item, idx) => (
                         <div
                             key={idx}
-                            className="flex items-center justify-center min-w-[250px] md:min-w-[450px] h-28 md:h-40 px-10 md:px-20 group/item"
+                            className="flex items-center justify-center min-w-[200px] md:min-w-[300px] h-28 md:h-40 px-6 md:px-10 group/item"
                         >
                             <img
                                 src={item.logo}
