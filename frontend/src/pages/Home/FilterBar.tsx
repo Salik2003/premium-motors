@@ -1,4 +1,4 @@
-import { ChevronDown, SlidersHorizontal, X, Search } from 'lucide-react'
+import { SlidersHorizontal, X, Search } from 'lucide-react'
 import { useState } from 'react'
 import { CustomDropdown } from '../../components/ui/CustomDropdown'
 

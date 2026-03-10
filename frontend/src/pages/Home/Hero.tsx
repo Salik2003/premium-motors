@@ -1,4 +1,3 @@
-import { ChevronDown } from 'lucide-react'
 import heroVideo from '../../assets/hero-sec-video.mp4'
 
 export const Hero = () => {
