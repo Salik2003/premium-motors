@@ -27,8 +27,8 @@ export const PartnerSlider = memo(() => {
     return (
         <section className="py-24 bg-white overflow-hidden border-t border-slate-50">
             <div className="max-w-7xl mx-auto px-8 mb-16 text-center">
-                <h2 className="text-brand-gold text-[10px] uppercase tracking-[0.5em] font-black italic mb-4">Global Network</h2>
-                <h3 className="text-4xl font-serif text-slate-900">Our Trusted Partners</h3>
+                <p className="text-slate-400 text-[10px] uppercase tracking-[0.6em] font-black italic mb-4">Official Partnerships</p>
+                <h2 className="text-4xl md:text-5xl font-serif text-slate-900 tracking-tight">Our Trusted Partners</h2>
             </div>
 
             <div className="relative group">
@@ -36,17 +36,17 @@ export const PartnerSlider = memo(() => {
                 <div className="absolute left-0 top-0 bottom-0 w-20 md:w-60 bg-gradient-to-r from-white via-white/90 to-transparent z-10 pointer-events-none" />
                 <div className="absolute right-0 top-0 bottom-0 w-20 md:w-60 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
 
-                <div className="flex animate-scroll hover:[animation-play-state:paused] whitespace-nowrap py-8 will-change-transform">
-                    {[...partners, ...partners, ...partners, ...partners].map((item, idx) => (
+                <div className="flex animate-scroll hover:[animation-play-state:paused] whitespace-nowrap py-12 will-change-transform">
+                    {[...partners, ...partners, ...partners, ...partners, ...partners, ...partners].map((item, idx) => (
                         <div
                             key={idx}
-                            className="flex items-center justify-center min-w-[140px] md:min-w-[300px] h-20 md:h-40 px-4 md:px-10 group/item"
+                            className="flex items-center justify-center min-w-[120px] md:min-w-[220px] h-24 md:h-32 px-4 md:px-8 group/item"
                         >
                             <img
                                 src={item.logo}
                                 alt={item.name}
                                 loading="lazy"
-                                className="h-8 md:h-20 w-auto object-contain opacity-75 filter group-hover/item:opacity-100 group-hover/item:scale-110 transition-all duration-500 ease-out"
+                                className="h-12 md:h-20 w-auto object-contain group-hover/item:scale-110 transition-all duration-500 ease-out"
                             />
                         </div>
                     ))}

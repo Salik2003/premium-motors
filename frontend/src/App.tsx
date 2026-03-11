@@ -6,6 +6,8 @@ import { Invest } from './pages/Invest/index'
 import { InvestDetail } from './pages/Invest/InvestDetail'
 import { About } from './pages/About/index'
 import { Contact } from './pages/Contact/index'
+import { Travel } from './pages/Travel/index'
+import { Chauffeur } from './pages/Chauffeur/index'
 import { AdminLayout } from './components/admin/AdminLayout'
 import { Dashboard } from './pages/admin/Dashboard'
 import { MainLayout } from './components/layout/MainLayout'
@@ -41,6 +43,8 @@ function App() {
                 <Route path="/cars/:id" element={<CarDetail />} />
                 <Route path="/invest" element={<Invest />} />
                 <Route path="/invest/:id" element={<InvestDetail />} />
+                <Route path="/travel" element={<Travel />} />
+                <Route path="/chauffeur" element={<Chauffeur />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
               </Route>

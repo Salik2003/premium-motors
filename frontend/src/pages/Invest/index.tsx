@@ -1,161 +1,226 @@
-import { useNavigate } from 'react-router-dom'
-import { ArrowRight, Plane, Car, User, ShieldCheck, Clock, Layers, Briefcase, ShoppingBag, Globe } from 'lucide-react'
-import { Button } from '../../components/ui/Button'
-import { Input } from '../../components/ui/Input'
+import { ArrowRight, CheckCircle2, MessageSquare, Users, FileText, Car as CarIcon, CreditCard, GraduationCap, ClipboardList, Key, TrendingUp, ChevronRight } from 'lucide-react'
+import { WhatsAppIcon } from '../../components/layout/MainLayout'
 
-const investmentCategories = [
+const investmentPackages = [
+    {
+        id: 'comfort',
+        title: 'COMFORT PACKAGE',
+        carNames: 'Toyota Corolla, Honda Civic, Hyundai Elantra',
+        roi: 'PKR 150k/month',
+        investment: 'PKR 6M',
+        image: 'https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?auto=format&fit=crop&q=80',
+        features: ['Local luxury sedans', 'High resale value', 'Ideal for executive corporate rent-a-car']
+    },
     {
         id: 'limousine',
-        title: 'LIMOUSINE',
-        description: 'Elite Chauffeur Portfolio',
-        icon: <User className="text-brand-gold" size={24} />,
-        roi: '18-22%',
-    },
-    {
-        id: 'private-jet',
-        title: 'PRIVATE JET',
-        description: 'Fractional Asset Ownership',
-        icon: <Plane className="text-brand-gold" size={24} />,
-        roi: '25%+',
-    },
-    {
-        id: 'travel-tourism',
-        title: 'TRAVEL & TOURISM',
-        description: 'Luxury Destination Assets',
-        icon: <Globe className="text-brand-gold" size={24} />,
-        roi: '15-20%',
-    },
-    {
-        id: 'car-rental',
-        title: 'CAR RENTAL',
-        description: 'High-Demand Daily Fleet',
-        icon: <Car className="text-brand-gold" size={24} />,
-        roi: '14-18%',
-    },
-    {
-        id: 'commercial-broker',
-        title: 'COMMERCIAL BROKER',
-        description: 'Corporate Asset Leasing',
-        icon: <Briefcase className="text-brand-gold" size={24} />,
-        roi: '12-16%',
-    },
-    {
-        id: 'ecommerce',
-        title: 'ECOMMERCE',
-        description: 'Digital Automotive Retail',
-        icon: <ShoppingBag className="text-brand-gold" size={24} />,
-        roi: '20-25%',
+        title: 'LIMOUSINE PACKAGE',
+        carNames: 'Toyota Land Cruiser, Range Rover, Audi e-tron',
+        roi: 'PKR 500k/month',
+        investment: 'PKR 45M',
+        image: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&q=80',
+        features: ['Executive SUVs and EVs', 'Premium bulletproofing options', 'Targeted at high-profile VIP clients']
     }
 ]
 
+const procedureSteps = [
+    { id: '01', title: 'Initial Inquiry', icon: MessageSquare, desc: 'Contact our investment advisory team' },
+    { id: '02', title: 'Sales Meeting', icon: Users, desc: 'Detailed briefing on asset performance' },
+    { id: '03', title: 'Documentation', icon: FileText, desc: 'Legal verification and agreement signing' },
+    { id: '04', title: 'Select Asset', icon: CarIcon, desc: 'Choose your preferred vehicle and driver' },
+    { id: '05', title: 'Down Payment', icon: CreditCard, desc: 'Secure your spot in the investment pool' },
+    { id: '06', title: 'RTA Training', icon: GraduationCap, desc: 'Driver vetting and specialized training' },
+    { id: '07', title: 'Registration', icon: ClipboardList, desc: 'Vehicle licensing and permit processing' },
+    { id: '08', title: 'Vehicle Handover', icon: Key, desc: 'Assets deployed for active operations' },
+    { id: '09', title: 'Start Earning', icon: TrendingUp, desc: 'Receive your first monthly distribution' },
+]
+
 export const Invest = () => {
-    const navigate = useNavigate()
+    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+923132723938';
 
     return (
-        <div className="pt-24 min-h-screen bg-white">
+        <div className="min-h-screen bg-white">
             {/* Hero */}
-            <section className="relative px-8 py-20 md:py-32 flex items-center justify-center overflow-hidden bg-brand-dark text-white">
-                <div className="absolute inset-0 opacity-20">
-                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80" className="w-full h-full object-cover" alt="Investment Background" />
+            <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-brand-dark text-white">
+                <div className="absolute inset-0 opacity-30">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80" className="w-full h-full object-cover" alt="Investment Background" />
                 </div>
-                <div className="relative z-10 text-center space-y-6 max-w-5xl">
-                    <div className="inline-flex items-center gap-3 px-5 py-2 bg-brand-gold/10 border border-brand-gold/20 rounded-full">
-                        <ShieldCheck className="text-brand-gold" size={14} />
-                        <span className="text-[9px] uppercase tracking-[0.5em] font-black text-brand-gold italic">Secured Asset Group</span>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand-dark/80" />
+
+                <div className="relative z-10 text-center space-y-6 max-w-5xl px-8">
+                    <div className="inline-flex items-center gap-3 px-5 py-2 bg-brand-gold/10 border border-brand-gold/20 rounded-full backdrop-blur-md">
+                        <TrendingUp className="text-brand-gold" size={14} />
+                        <span className="text-[9px] uppercase tracking-[0.5em] font-black text-brand-gold italic">Secured Returns</span>
                     </div>
-                    <h1 className="text-5xl md:text-7xl font-serif leading-tight">
-                        Be An <span className="text-brand-gold italic">Investor</span>
+                    <h1 className="text-5xl md:text-8xl font-serif leading-tight">
+                        Wealth <span className="text-brand-gold italic">Engineering</span>
                     </h1>
                     <p className="text-slate-400 text-[10px] md:text-xs max-w-2xl mx-auto uppercase tracking-[0.4em] font-bold leading-loose opacity-70">
-                        Choose high-yield asset classes <br className="hidden md:block" />
-                        engineered for Pakistan's evolving economy.
+                        Asset-backed investment opportunities <br className="hidden md:block" />
+                        providing consistent monthly yields.
                     </p>
                 </div>
             </section>
 
-            {/* Category Grid */}
-            <section className="max-w-7xl mx-auto px-6 md:px-12 py-32">
+            {/* Packages Section */}
+            <section className="max-w-7xl mx-auto px-6 md:px-12 py-32 space-y-24">
                 <div className="text-center space-y-3 mb-20">
-                    <p className="text-[10px] uppercase tracking-[0.3em] font-black text-slate-300 italic">Diversify your portfolio</p>
-                    <h2 className="text-4xl font-serif text-slate-900 underline decoration-brand-gold decoration-4 underline-offset-8">Investments</h2>
+                    <p className="text-[10px] uppercase tracking-[0.5em] font-black text-brand-gold italic">Elite Portfolios</p>
+                    <h2 className="text-4xl md:text-6xl font-serif text-slate-900 tracking-tight">Investment Packages</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
-                    {investmentCategories.map((cat) => (
-                        <button
-                            key={cat.id}
-                            onClick={() => navigate(`/invest/${cat.id}`)}
-                            className="group flex items-center justify-between p-10 md:p-12 bg-slate-50 border border-slate-100 rounded-[2.5rem] hover:bg-white hover:border-brand-gold/30 hover:shadow-2xl hover:shadow-brand-gold/5 transition-all duration-500 text-left"
-                        >
-                            <div className="flex items-center gap-8 md:gap-12">
-                                <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-3xl flex items-center justify-center shadow-xl shadow-slate-200/50 transition-transform duration-500 group-hover:scale-110">
-                                    {cat.icon}
+                <div className="space-y-12 md:space-y-20">
+                    {investmentPackages.map((pkg, idx) => {
+                        const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hi, I'm interested in the ${pkg.title} investment package.`)}`;
+                        const carList = pkg.carNames.split(',').map(name => name.trim());
+
+                        return (
+                            <div key={pkg.id} className={`flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} bg-slate-50 border border-slate-100 rounded-[3rem] overflow-hidden hover:shadow-2xl hover:shadow-brand-gold/5 transition-all duration-700 group`}>
+                                {/* Content Area */}
+                                <div className="flex-1 p-10 md:p-20 space-y-10">
+                                    <div className="space-y-4">
+                                        <h3 className="text-2xl md:text-3xl font-serif text-brand-gold font-bold leading-tight uppercase tracking-wide">{pkg.title}</h3>
+                                        <p className="text-slate-400 text-[10px] md:text-xs uppercase tracking-[0.4em] font-black italic">{pkg.carNames}</p>
+                                    </div>
+
+                                    <div className="grid grid-cols-2 gap-8 md:gap-12">
+                                        <div className="space-y-2">
+                                            <p className="text-[9px] text-slate-400 uppercase tracking-widest font-black">Monthly Yield</p>
+                                            <p className="text-2xl md:text-3xl font-serif text-brand-dark font-bold">{pkg.roi}</p>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <p className="text-[9px] text-slate-400 uppercase tracking-widest font-black">Total Capital</p>
+                                            <p className="text-2xl md:text-3xl font-serif text-brand-dark font-bold">{pkg.investment}</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-4">
+                                        <p className="text-[9px] text-brand-gold uppercase tracking-[0.4em] font-black italic">Cars Name</p>
+                                        <ul className="space-y-4">
+                                            {carList.map((car, cIdx) => (
+                                                <li key={cIdx} className="flex items-start gap-4">
+                                                    <CheckCircle2 size={16} className="text-[#25D366] mt-0.5 flex-shrink-0" />
+                                                    <span className="text-[11px] text-slate-500 font-bold uppercase tracking-widest leading-relaxed">{car}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    <a
+                                        href={whatsappLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-4 px-10 py-5 bg-[#25D366] text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.3em] hover:scale-105 active:scale-95 transition-all shadow-xl shadow-[#25D366]/20"
+                                    >
+                                        <WhatsAppIcon size={20} />
+                                        Inquire via WhatsApp
+                                        <ChevronRight size={16} />
+                                    </a>
                                 </div>
-                                <div className="space-y-1">
-                                    <h3 className="text-xl md:text-2xl font-serif text-slate-900 tracking-tight">{cat.title}</h3>
-                                    <p className="text-slate-400 text-[9px] md:text-[10px] uppercase tracking-widest font-black italic">{cat.description}</p>
+
+                                {/* Image Area */}
+                                <div className="flex-1 relative overflow-hidden min-h-[300px] md:min-h-auto">
+                                    <img
+                                        src={pkg.image}
+                                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                        alt={pkg.title}
+                                    />
+                                    <div className={`absolute inset-0 bg-gradient-to-${idx % 2 === 0 ? 'r' : 'l'} from-slate-50 to-transparent hidden md:block opacity-40`} />
                                 </div>
                             </div>
-                            <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center border border-slate-100 group-hover:border-brand-gold group-hover:text-brand-gold transition-all duration-500 shadow-sm">
-                                <ArrowRight size={18} className="transition-transform duration-500 group-hover:translate-x-1" />
-                            </div>
-                        </button>
-                    ))}
+                        )
+                    })}
                 </div>
             </section>
 
-            {/* Lead Gen Registration */}
-            <section className="bg-slate-50 py-32 border-t border-slate-100">
-                <div className="max-w-4xl mx-auto px-12">
-                    <div className="text-center space-y-4 mb-20">
+            {/* Procedure Flowchart */}
+            <section className="bg-brand-dark py-32 md:py-48 px-8 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold opacity-5 blur-[120px] -mr-64 -mt-64" />
+                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-gold opacity-5 blur-[120px] -ml-64 -mb-64" />
+
+                <div className="max-w-7xl mx-auto space-y-24 relative z-10">
+                    <div className="text-center space-y-6">
                         <div className="w-16 h-1 bg-brand-gold mx-auto rounded-full" />
-                        <h2 className="text-3xl font-serif text-brand-dark">Private Onboarding</h2>
-                        <p className="text-[10px] uppercase tracking-widest text-slate-400 font-bold italic leading-relaxed">
-                            Register your credentials to receive a detailed prospectus <br />
-                            and performance audit for our available asset pools.
+                        <h2 className="text-4xl md:text-6xl font-serif text-white leading-tight">Investment <span className="text-brand-gold italic">Procedure</span></h2>
+                        <p className="text-slate-400 text-[10px] md:text-xs uppercase tracking-[0.4em] font-bold italic max-w-xl mx-auto leading-relaxed">
+                            A transparent 9-step journey from initial <br />
+                            consultation to monthly yielding distribution.
                         </p>
                     </div>
 
-                    <form className="bg-white p-12 md:p-16 rounded-[4rem] shadow-2xl shadow-slate-200/50 space-y-12 border border-slate-100 relative overflow-hidden">
-                        <div className="absolute top-0 left-0 w-full h-1 bg-brand-gold/20" />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                        {procedureSteps.map((step, sIdx) => {
+                            // Explicit grid positions for zigzag:
+                            // Row 1: 01 (1), 02 (2), 03 (3)
+                            // Row 2: 06 (4), 05 (5), 04 (6)
+                            // Row 3: 07 (7), 08 (8), 09 (9)
+                            const gridPos =
+                                sIdx === 0 ? 'lg:order-1' :
+                                    sIdx === 1 ? 'lg:order-2' :
+                                        sIdx === 2 ? 'lg:order-3' :
+                                            sIdx === 5 ? 'lg:order-4' : // step 06 at position 4
+                                                sIdx === 4 ? 'lg:order-5' : // step 05 at position 5
+                                                    sIdx === 3 ? 'lg:order-6' : // step 04 at position 6
+                                                        sIdx >= 6 ? `lg:order-${sIdx + 1}` : '';
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                            <Input label="FULL LEGAL NAME" placeholder="EX: HAMZA KHAN" />
-                            <Input label="WHATSAPP NUMBER" placeholder="+92 3XX XXXXXXX" />
-                            <Input label="EMAIL ADDRESS" placeholder="KHAN@INVEST.PK" />
-                            <Input label="RESIDENCE CITY" placeholder="CITY NAME" />
-                        </div>
+                            return (
+                                <div
+                                    key={step.id}
+                                    className={`group p-8 bg-white/5 border border-white/5 rounded-[2rem] hover:bg-white/10 hover:border-brand-gold/30 transition-all duration-500 flex items-start gap-6 relative sm:order-none ${gridPos}`}
+                                >
+                                    <div className="absolute -top-4 -left-4 w-10 h-10 bg-brand-dark border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-[10px] font-black z-20">
+                                        {step.id}
+                                    </div>
 
-                        <div className="space-y-4">
-                            <label className="block text-[9px] uppercase tracking-[0.3em] font-black text-slate-300 px-2 italic">Select Primary Asset Interest</label>
-                            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                                {investmentCategories.map(cat => (
-                                    <button
-                                        key={cat.id}
-                                        type="button"
-                                        className="py-4 px-6 rounded-2xl border border-slate-50 bg-slate-50 text-[9px] font-black uppercase tracking-widest text-slate-400 hover:border-brand-gold/30 hover:text-brand-gold hover:bg-white transition-all text-center"
-                                    >
-                                        {cat.title.split(' ')[0]} Portfolio
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
+                                    <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-brand-gold transition-transform duration-500 group-hover:scale-110 group-hover:bg-brand-gold group-hover:text-brand-dark flex-shrink-0">
+                                        <step.icon size={24} strokeWidth={1.5} />
+                                    </div>
 
-                        <Button size="lg" className="w-full h-18 text-[11px] font-black uppercase tracking-[0.4em] shadow-2xl shadow-brand-gold/20 active:scale-95 transition-all" icon={ArrowRight}>
-                            Access Registry
-                        </Button>
-                    </form>
+                                    <div className="space-y-2">
+                                        <h4 className="text-base font-serif text-white group-hover:text-brand-gold transition-colors">{step.title}</h4>
+                                        <p className="text-[10px] text-slate-500 uppercase tracking-widest font-black leading-relaxed">{step.desc}</p>
+                                    </div>
 
-                    <div className="mt-16 flex items-center justify-center gap-8 opacity-40">
-                        <div className="flex items-center gap-3">
-                            <Clock size={12} />
-                            <span className="text-[8px] uppercase tracking-widest font-black">24H Advisor Response</span>
-                        </div>
-                        <div className="h-4 w-[1px] bg-slate-300" />
-                        <div className="flex items-center gap-3">
-                            <Layers size={12} />
-                            <span className="text-[8px] uppercase tracking-widest font-black">Secured Custodial Accounts</span>
-                        </div>
+                                    {/* Flow Arrows */}
+                                    {/* 1 -> 2, 2 -> 3 */}
+                                    {(sIdx === 0 || sIdx === 1) && (
+                                        <div className="hidden lg:block absolute top-1/2 -right-6 -translate-y-1/2 text-white/10 group-hover:text-brand-gold/20 transition-colors z-10">
+                                            <ArrowRight size={24} />
+                                        </div>
+                                    )}
+                                    {/* 3 -> 4 (Down to Pos 6) */}
+                                    {sIdx === 2 && (
+                                        <div className="hidden lg:block absolute -bottom-10 right-1/2 translate-x-1/2 text-white/10 group-hover:text-brand-gold/20 transition-colors rotate-90 z-10">
+                                            <ArrowRight size={24} />
+                                        </div>
+                                    )}
+                                    {/* 4 -> 5, 5 -> 6 (Left flow in row 2: Pos 6 -> Pos 5 -> Pos 4) */}
+                                    {(sIdx === 3 || sIdx === 4) && (
+                                        <div className="hidden lg:block absolute top-1/2 -left-6 -translate-y-1/2 text-white/10 group-hover:text-brand-gold/20 transition-colors rotate-180 z-10">
+                                            <ArrowRight size={24} />
+                                        </div>
+                                    )}
+                                    {/* 6 -> 7 (Down from Pos 4 to Pos 7) */}
+                                    {sIdx === 5 && (
+                                        <div className="hidden lg:block absolute -bottom-10 right-1/2 translate-x-1/2 text-white/10 group-hover:text-brand-gold/20 transition-colors rotate-90 z-10">
+                                            <ArrowRight size={24} />
+                                        </div>
+                                    )}
+                                    {/* 7 -> 8, 8 -> 9 */}
+                                    {(sIdx === 6 || sIdx === 7) && (
+                                        <div className="hidden lg:block absolute top-1/2 -right-6 -translate-y-1/2 text-white/10 group-hover:text-brand-gold/20 transition-colors z-10">
+                                            <ArrowRight size={24} />
+                                        </div>
+                                    )}
+
+                                    {/* Default arrows for non-lg screens */}
+                                    {sIdx < procedureSteps.length - 1 && (
+                                        <div className="hidden sm:block lg:hidden absolute top-1/2 -right-6 -translate-y-1/2 text-white/10 group-hover:text-brand-gold/20 transition-colors z-10">
+                                            <ArrowRight size={24} />
+                                        </div>
+                                    )}
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
             </section>

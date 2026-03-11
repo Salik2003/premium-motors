@@ -18,7 +18,6 @@ export const FilterBar = ({ onFilterChange, activeFilters, sortOrder, onSortChan
         { label: 'Transmission', options: ['Automatic', 'Manual'] },
         { label: 'Fuel Type', options: ['Petrol', 'Diesel', 'Hybrid', 'Electric'] },
         { label: 'Condition', options: ['New', 'Used'] },
-        { label: 'Registered', options: ['Un-Registered', 'Punjab', 'Sindh', 'ICT'] },
     ];
 
     return (
@@ -34,7 +33,7 @@ export const FilterBar = ({ onFilterChange, activeFilters, sortOrder, onSortChan
                             }`}
                     >
                         <SlidersHorizontal size={14} strokeWidth={3} />
-                        <span className="text-[10px] uppercase tracking-[0.2em] font-black hidden md:block">Registry Filters</span>
+                        <span className="text-[10px] uppercase tracking-[0.2em] font-black hidden md:block">Refine Results</span>
                         {Object.keys(activeFilters).length > 0 && (
                             <span className="w-5 h-5 rounded-full bg-brand-gold text-white text-[9px] flex items-center justify-center font-black">
                                 {Object.keys(activeFilters).length}
@@ -67,7 +66,7 @@ export const FilterBar = ({ onFilterChange, activeFilters, sortOrder, onSortChan
                     <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-brand-gold transition-colors" size={16} />
                     <input
                         type="text"
-                        placeholder="SEARCH REGISTRY..."
+                        placeholder="SEARCH INVENTORY..."
                         value={searchQuery}
                         onChange={(e) => onSearchChange(e.target.value)}
                         className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-12 py-3.5 text-[10px] font-black uppercase tracking-widest focus:outline-none focus:border-brand-gold/30 focus:bg-white transition-all shadow-sm"

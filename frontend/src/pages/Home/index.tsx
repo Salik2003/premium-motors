@@ -44,8 +44,16 @@ export const Home = () => {
         // Filters
         Object.entries(activeFilters).forEach(([key, value]) => {
             if (value) {
-                const filterKey = key === 'registered' ? 'registered_in' : key;
-                result = result.filter(car => (car as any)[filterKey] === value);
+                if (key === 'fuel_type') {
+                    result = result.filter(car => {
+                        const carFuel = (car.fuel_type || '').toLowerCase();
+                        const filterFuel = value.toLowerCase();
+                        if (filterFuel === 'hybrid') return carFuel.includes('hybrid');
+                        return carFuel === filterFuel;
+                    });
+                } else {
+                    result = result.filter(car => (car as any)[key] === value);
+                }
             }
         });
 
@@ -75,7 +83,7 @@ export const Home = () => {
 
             <section className="max-w-7xl mx-auto px-6 md:px-12 py-24 overflow-hidden">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20">
-                    <div className="space-y-4">
+                    <div className="space-y-4" data-aos="fade-right">
                         <div className="inline-flex items-center gap-3 text-brand-gold">
                             <span className="w-8 h-[1px] bg-brand-gold" />
                             <p className="text-[10px] uppercase tracking-[0.4em] font-black italic">Curated Selection</p>
@@ -114,8 +122,8 @@ export const Home = () => {
                 ) : null}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16">
-                    {filteredAndSortedCars.map((car) => (
-                        <div key={car.id} >
+                    {filteredAndSortedCars.map((car, i) => (
+                        <div key={car.id} data-aos="fade-up" data-aos-delay={i * 100}>
                             <CarCard car={car} />
                         </div>
                     ))}

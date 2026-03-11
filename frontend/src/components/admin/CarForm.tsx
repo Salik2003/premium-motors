@@ -41,14 +41,23 @@ export const CarForm = ({ car, onSave, onCancel }: CarFormProps) => {
         onSave(formData)
     }
 
-    const handleImageAdd = () => {
-        const url = prompt('Enter Image URL (Temporary replacement for real upload):')
-        if (url) {
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const files = e.target.files
+        if (files && files.length > 0) {
+            const newImages: string[] = []
+            Array.from(files).forEach(file => {
+                const url = URL.createObjectURL(file)
+                newImages.push(url)
+            })
             setFormData(prev => ({
                 ...prev,
-                images: [...(prev.images || []), url]
+                images: [...(prev.images || []), ...newImages]
             }))
         }
+    }
+
+    const triggerFileInput = () => {
+        document.getElementById('car-image-upload')?.click()
     }
 
     return (
@@ -168,6 +177,14 @@ export const CarForm = ({ car, onSave, onCancel }: CarFormProps) => {
                     <div className="space-y-4">
                         <label className="text-[10px] uppercase tracking-widest font-black text-slate-400 dark:text-slate-500">Asset Gallery</label>
                         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                            <input
+                                type="file"
+                                id="car-image-upload"
+                                multiple
+                                accept="image/*"
+                                className="hidden"
+                                onChange={handleFileChange}
+                            />
                             {formData.images?.map((img, i) => (
                                 <div key={i} className="group relative aspect-video bg-slate-100 dark:bg-white/5 rounded-xl overflow-hidden border border-slate-100 dark:border-white/10 shadow-sm">
                                     <img src={img} alt="" className="w-full h-full object-cover" />
@@ -182,7 +199,7 @@ export const CarForm = ({ car, onSave, onCancel }: CarFormProps) => {
                             ))}
                             <button
                                 type="button"
-                                onClick={handleImageAdd}
+                                onClick={triggerFileInput}
                                 className="aspect-video border-2 border-dashed border-slate-100 dark:border-white/10 rounded-xl flex flex-col items-center justify-center gap-2 text-slate-300 hover:text-brand-gold hover:border-brand-gold transition-all bg-slate-50/30 dark:bg-white/5"
                             >
                                 <Upload size={18} />

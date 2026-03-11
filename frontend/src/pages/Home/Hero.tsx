@@ -21,16 +21,23 @@ export const Hero = () => {
                         <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse shadow-[0_0_10px_rgba(197,160,89,0.8)]" />
                         <h2 className="text-white text-[7px] md:text-[9px] uppercase tracking-[0.4em] md:tracking-[0.5em] font-black italic">The Gold Standard of Pakistan</h2>
                     </div>
-                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif text-white leading-[1.2] tracking-tight drop-shadow-2xl" data-aos="fade-up">
-                        Acquire Your <br />
-                        <span className="text-brand-gold italic">Automotive</span> Masterpiece
+                    <h1 className="text-4xl md:text-7xl lg:text-9xl font-serif leading-[1.1] md:leading-[1.05] tracking-tight text-white mb-6 md:mb-10 lg:mb-12">
+                        Luxury <br className="hidden md:block" />
+                        <span className="text-brand-gold italic">Redefined</span> In <br className="hidden md:block" />
+                        Karachi
                     </h1>
                 </div>
 
-                <p className="text-slate-200 text-[8px] md:text-[10px] max-w-xl mx-auto leading-relaxed font-black uppercase tracking-[0.3em] md:tracking-[0.4em] animate-in fade-in slide-in-from-bottom-10 duration-1000 drop-shadow-lg opacity-80">
+                <p className="text-slate-200 text-[8px] md:text-[10px] max-w-xl mx-auto leading-relaxed font-black uppercase tracking-[0.3em] md:tracking-[0.4em] drop-shadow-lg opacity-80">
                     A Curated Selection of the Nation's Most Exclusive <br className="hidden md:block" />
                     Vehicles. Discovery Simplified. Connection Direct.
                 </p>
+
+                <div className="pt-8" data-aos="fade-left">
+                    <button className="px-10 py-5 bg-brand-gold text-white text-[10px] font-black uppercase tracking-[0.4em] rounded-full hover:bg-white hover:text-brand-dark transition-all duration-500 shadow-2xl shadow-brand-gold/20">
+                        Explore Collection
+                    </button>
+                </div>
 
             </div>
 
