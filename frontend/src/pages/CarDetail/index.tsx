@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { supabase } from '../../lib/supabase'
-import { ArrowLeft, MapPin, MessageCircle, Share2, ShieldCheck } from 'lucide-react'
+import { ArrowLeft, MessageCircle, Share2, ShieldCheck } from 'lucide-react'
 import { Skeleton } from '../../components/ui/Skeleton'
 import type { Car } from '../../types'
 import { DUMMY_CARS } from '../../constants/dummyData'

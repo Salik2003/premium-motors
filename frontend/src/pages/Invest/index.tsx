@@ -207,7 +207,7 @@ export const Invest = () => {
                                     )}
 
                                     {sIdx < procedureSteps.length - 1 && (
-                                        <div className="hidden sm:block lg:hidden absolute top-1/2 -right-6 -translate-y-1/2 text-white/10 group-hover:text-brand-gold/20 transition-colors z-10">
+                                        <div className="hidden sm:block lg:hidden absolute top-1/2 -right-6 -translate-y-1/2 text-white group-hover:text-brand-gold transition-colors z-10">
                                             <ArrowRight size={24} />
                                         </div>
                                     )}

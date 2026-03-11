@@ -1,4 +1,4 @@
-import { Clock, CheckCircle2, Star, ChevronRight, UserCheck, ShieldCheck } from 'lucide-react'
+import { Clock, CheckCircle2, ChevronRight, UserCheck, ShieldCheck } from 'lucide-react'
 import { WhatsAppIcon } from '../../components/layout/MainLayout'
 
 const plans = [
