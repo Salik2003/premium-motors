@@ -1,7 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { supabase } from '../../lib/supabase'
 import { Button } from '../../components/ui/Button'
-import { Plus, Edit2, Trash2, Search, Filter, AlertCircle, MapPin } from 'lucide-react'
+import { Plus, Edit2, Trash2, Search, Filter, AlertCircle } from 'lucide-react'
 import { useState } from 'react'
 import { CarForm } from '../../components/admin/CarForm'
 import type { Car } from '../../types'
@@ -209,11 +209,7 @@ export const Inventory = () => {
                                 <div className="space-y-2">
                                     <div className="text-xs font-serif font-black text-slate-900 dark:text-white uppercase tracking-widest">{car.title}</div>
                                     <div className="text-[9px] uppercase tracking-widest text-brand-gold font-bold italic">{car.make} • {car.year}</div>
-                                    <div className="flex items-center gap-1.5 text-[8px] uppercase tracking-widest text-slate-400 font-black">
-                                        <MapPin size={10} className="text-brand-gold/50" />
-                                        Pakistan
-                                    </div>
-                                    <div className="text-sm font-serif font-black text-brand-dark dark:text-brand-silver">PKR {car.price.toLocaleString()}</div>
+                                    <div className="text-sm font-serif font-black text-brand-dark dark:text-brand-silver">€ {car.price.toLocaleString()}</div>
                                 </div>
                             </div>
                             <div className="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-white/5">

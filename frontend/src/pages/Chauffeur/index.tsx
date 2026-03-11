@@ -3,28 +3,28 @@ import { WhatsAppIcon } from '../../components/layout/MainLayout'
 
 const plans = [
     {
-        title: 'Weekly Premium Protocol',
-        price: 'PKR 120,000',
+        title: 'Weekly Ride Plan',
+        price: '€1,000',
         period: 'Weekly',
         billing: 'Billed one-time',
         features: [
-            'Luxury sedans and professional chauffeurs',
-            'Priority booking and flexible routes',
-            'Jinnah Int. Airport meet & greet',
-            'All-inclusive fuel and protocol'
+            'Premium cars and verified chauffeurs',
+            'Priority booking during peak hours',
+            'Airport pickup & drop-off available',
+            'Transparent pricing'
         ]
     },
     {
-        title: 'Monthly Executive Mobility',
-        price: 'PKR 450,000',
-        period: 'Monthly',
-        billing: 'Billed monthly',
+        title: '15 Days Ride Plan',
+        price: '€2,000',
+        period: '15 Days',
+        billing: 'Billed one-time',
         features: [
-            'Dedicated chauffeur and 24/7 vehicle access',
-            'Bulletproof vehicle options available',
-            'Coverage across Karachi and Sindh region',
-            'VIP protection trained drivers',
-            'Concierge support'
+            'Comfortable rides for work or personal use',
+            'Professional chauffeurs',
+            'Available across Portugal cities',
+            'Flexible timing and easy booking',
+            '24/7 customer support'
         ]
     }
 ]
@@ -48,14 +48,14 @@ export const Chauffeur = () => {
                             <h2 className="text-white text-[7px] md:text-[9px] uppercase tracking-[0.4em] md:tracking-[0.5em] font-black italic">Premium Mobility</h2>
                         </div>
                         <h1 className="text-3xl md:text-5xl lg:text-7xl font-serif text-white leading-[1.2] tracking-tight drop-shadow-2xl">
-                            Elite <br />
-                            <span className="text-brand-gold italic">Chauffeur</span> Protocol
+                            Private <br />
+                            <span className="text-brand-gold italic">Chauffeur</span> Service
                         </h1>
                     </div>
 
                     <p className="text-slate-200 text-[8px] md:text-[10px] max-w-xl mx-auto leading-relaxed font-black uppercase tracking-[0.3em] md:tracking-[0.4em] drop-shadow-lg opacity-80">
                         Professional logistics engineered for <br className="hidden md:block" />
-                        corporate and private executives in Karachi.
+                        corporate and private travelers in Portugal.
                     </p>
                 </div>
             </section>

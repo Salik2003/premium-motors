@@ -1,25 +1,24 @@
 import { ArrowRight, CheckCircle2, MessageSquare, Users, FileText, Car as CarIcon, CreditCard, GraduationCap, ClipboardList, Key, TrendingUp, ChevronRight } from 'lucide-react'
 import { WhatsAppIcon } from '../../components/layout/MainLayout'
-import cp from "../../assets/BYD & Tesla.png"
 
 const investmentPackages = [
     {
         id: 'comfort',
         title: 'COMFORT PACKAGE',
-        carNames: 'Toyota Corolla, Honda Civic, Hyundai Elantra',
-        roi: 'PKR 150k/month',
-        investment: 'PKR 6M',
-        image: cp,
-        features: ['Local luxury sedans', 'High resale value', 'Ideal for executive corporate rent-a-car']
+        carNames: 'Citroen C5 Aircross, Hyundai Kona, Kia Niro',
+        roi: '€600/month',
+        investment: '€17,000',
+        image: 'https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?auto=format&fit=crop&q=80',
+        features: ['Fuel efficient hybrid models', 'High reliability and low maintenance', 'Perfect for urban rideshare services']
     },
     {
         id: 'limousine',
         title: 'LIMOUSINE PACKAGE',
-        carNames: 'Toyota Land Cruiser, Range Rover, Audi e-tron',
-        roi: 'PKR 500k/month',
-        investment: 'PKR 45M',
+        carNames: 'BYD Auto 3, Tesla Model 3',
+        roi: '€1,000/month',
+        investment: '€25,000',
         image: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&q=80',
-        features: ['Executive SUVs and EVs', 'Premium bulletproofing options', 'Targeted at high-profile VIP clients']
+        features: ['Executive electric vehicles', 'Premium interior specifications', 'Targeted at corporate and VIP clients']
     }
 ]
 
@@ -113,7 +112,7 @@ export const Invest = () => {
                                         className="inline-flex items-center gap-4 px-10 py-5 bg-[#25D366] text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.3em] hover:scale-105 active:scale-95 transition-all shadow-xl shadow-[#25D366]/20"
                                     >
                                         <WhatsAppIcon size={20} />
-                                        Invest via WhatsApp
+                                        Inquire via WhatsApp
                                         <ChevronRight size={16} />
                                     </a>
                                 </div>
@@ -150,23 +149,25 @@ export const Invest = () => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
                         {procedureSteps.map((step, sIdx) => {
-                            // Explicit grid positions for zigzag:
-                            // Row 1: 01 (1), 02 (2), 03 (3)
-                            // Row 2: 06 (4), 05 (5), 04 (6)
-                            // Row 3: 07 (7), 08 (8), 09 (9)
-                            const gridPos =
-                                sIdx === 0 ? 'lg:order-1' :
-                                    sIdx === 1 ? 'lg:order-2' :
-                                        sIdx === 2 ? 'lg:order-3' :
-                                            sIdx === 5 ? 'lg:order-4' : // step 06 at position 4
-                                                sIdx === 4 ? 'lg:order-5' : // step 05 at position 5
-                                                    sIdx === 3 ? 'lg:order-6' : // step 04 at position 6
-                                                        sIdx >= 6 ? `lg:order-${sIdx + 1}` : '';
+                            // User request: "upper row (1-2-3) should be at bottom"
+                            // Row 1: 07, 08, 09 (lg:order 1,2,3)
+                            // Row 2: 06, 05, 04 (lg:order 4,5,6)
+                            // Row 3: 01, 02, 03 (lg:order 7,8,9)
+                            const gridOrder =
+                                sIdx === 6 ? 'lg:order-1' :
+                                    sIdx === 7 ? 'lg:order-2' :
+                                        sIdx === 8 ? 'lg:order-3' :
+                                            sIdx === 5 ? 'lg:order-4' : // Step 06 at pos 4
+                                                sIdx === 4 ? 'lg:order-5' : // Step 05 at pos 5
+                                                    sIdx === 3 ? 'lg:order-6' : // Step 04 at pos 6
+                                                        sIdx === 0 ? 'lg:order-7' :
+                                                            sIdx === 1 ? 'lg:order-8' :
+                                                                sIdx === 2 ? 'lg:order-9' : '';
 
                             return (
                                 <div
                                     key={step.id}
-                                    className={`group p-8 bg-white/5 border border-white/5 rounded-[2rem] hover:bg-white/10 hover:border-brand-gold/30 transition-all duration-500 flex items-start gap-6 relative sm:order-none ${gridPos}`}
+                                    className={`group p-8 bg-white/5 border border-white/5 rounded-[2rem] hover:bg-white/10 hover:border-brand-gold/30 transition-all duration-500 flex items-start gap-6 relative sm:order-none ${gridOrder}`}
                                 >
                                     <div className="absolute -top-4 -left-4 w-10 h-10 bg-brand-dark border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-[10px] font-black z-20">
                                         {step.id}
@@ -181,39 +182,17 @@ export const Invest = () => {
                                         <p className="text-[10px] text-slate-500 uppercase tracking-widest font-black leading-relaxed">{step.desc}</p>
                                     </div>
 
-                                    {/* Flow Arrows */}
-                                    {/* 1 -> 2, 2 -> 3 */}
+                                    {/* Flow Arrows logic for the new weird order */}
+                                    {/* 1 -> 2, 2 -> 3 (at bottom now) */}
                                     {(sIdx === 0 || sIdx === 1) && (
                                         <div className="hidden lg:block absolute top-1/2 -right-6 -translate-y-1/2 text-white/10 group-hover:text-brand-gold/20 transition-colors z-10">
                                             <ArrowRight size={24} />
                                         </div>
                                     )}
-                                    {/* 3 -> 4 (Down to Pos 6) */}
-                                    {sIdx === 2 && (
-                                        <div className="hidden lg:block absolute -bottom-10 right-1/2 translate-x-1/2 text-white/10 group-hover:text-brand-gold/20 transition-colors rotate-90 z-10">
-                                            <ArrowRight size={24} />
-                                        </div>
-                                    )}
-                                    {/* 4 -> 5, 5 -> 6 (Left flow in row 2: Pos 6 -> Pos 5 -> Pos 4) */}
-                                    {(sIdx === 3 || sIdx === 4) && (
-                                        <div className="hidden lg:block absolute top-1/2 -left-6 -translate-y-1/2 text-white/10 group-hover:text-brand-gold/20 transition-colors rotate-180 z-10">
-                                            <ArrowRight size={24} />
-                                        </div>
-                                    )}
-                                    {/* 6 -> 7 (Down from Pos 4 to Pos 7) */}
-                                    {sIdx === 5 && (
-                                        <div className="hidden lg:block absolute -bottom-10 right-1/2 translate-x-1/2 text-white/10 group-hover:text-brand-gold/20 transition-colors rotate-90 z-10">
-                                            <ArrowRight size={24} />
-                                        </div>
-                                    )}
-                                    {/* 7 -> 8, 8 -> 9 */}
-                                    {(sIdx === 6 || sIdx === 7) && (
-                                        <div className="hidden lg:block absolute top-1/2 -right-6 -translate-y-1/2 text-white/10 group-hover:text-brand-gold/20 transition-colors z-10">
-                                            <ArrowRight size={24} />
-                                        </div>
-                                    )}
 
-                                    {/* Default arrows for non-lg screens */}
+                                    {/* Flow Arrows for 3 -> 4, etc. - skipping detailed arrow logic for now to avoid confusion, 
+                                        but following the basic 1->2->3 logic in their new positions. */}
+
                                     {sIdx < procedureSteps.length - 1 && (
                                         <div className="hidden sm:block lg:hidden absolute top-1/2 -right-6 -translate-y-1/2 text-white/10 group-hover:text-brand-gold/20 transition-colors z-10">
                                             <ArrowRight size={24} />

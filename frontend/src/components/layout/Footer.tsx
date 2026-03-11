@@ -8,17 +8,17 @@ export const Footer = () => {
             <div className="max-w-7xl mx-auto px-8 py-20">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
                     <div className="space-y-8">
-                        <Link to="/" className="flex items-center gap-4 group">
-                            <div className="w-14 h-14 md:w-16 md:h-16">
+                        <Link to="/" className="flex items-center gap-3 group">
+                            <div className="w-10 h-10">
                                 <img src={pmLogo} alt="Premium Motors Logo" className="w-full h-full object-contain" />
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-sm md:text-base font-serif font-black tracking-[0.1em] text-brand-dark leading-none uppercase">PREMIUM</span>
-                                <span className="text-[7px] md:text-[9px] font-bold tracking-[0.3em] text-brand-gold uppercase leading-none mt-1.5">Motors</span>
+                                <span className="text-sm font-serif font-black tracking-[0.1em] text-brand-dark leading-none uppercase">PREMIUM</span>
+                                <span className="text-[7px] font-bold tracking-[0.3em] text-brand-gold uppercase leading-none mt-1">Motors</span>
                             </div>
                         </Link>
                         <p className="text-sm text-slate-500 leading-relaxed font-medium">
-                            Karachi's premier luxury automotive marketplace. We curate the finest vehicles for the discerning enthusiast.
+                            Pakistan's premier luxury automotive marketplace. We curate the finest vehicles for the discerning enthusiast.
                         </p>
                         <div className="flex gap-4">
                             {[Instagram, Facebook, Twitter].map((Icon, i) => (
@@ -35,8 +35,6 @@ export const Footer = () => {
                             {[
                                 { name: 'Home', path: '/home' },
                                 { name: 'Invest', path: '/invest' },
-                                { name: 'Travel', path: '/travel' },
-                                { name: 'Chauffeur', path: '/chauffeur' },
                                 { name: 'Our Story', path: '/about' },
                                 { name: 'Contact Us', path: '/contact' },
                             ].map((link) => (
@@ -55,7 +53,7 @@ export const Footer = () => {
                             {[
                                 { icon: Phone, text: '+92 313 2723938' },
                                 { icon: Mail, text: 'info@premiummotors.pk' },
-                                { icon: MapPin, text: 'DHA Phase 6, Karachi, Pakistan' },
+                                { icon: MapPin, text: 'Main Boulevard, Gulberg III, Lahore' },
                             ].map((item, i) => (
                                 <li key={i} className="flex items-start gap-4">
                                     <item.icon size={18} className="text-brand-gold shrink-0" strokeWidth={1.5} />

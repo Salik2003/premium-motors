@@ -14,67 +14,67 @@ import tour from "../../assets/tour.avif"
 const tours = [
     {
         id: 'city-tours',
-        category: 'Karachi City Tours',
+        category: 'City Tours',
         items: [
             {
-                name: 'Mohatta Palace Heritage',
+                name: 'Historic Lisbon',
                 duration: '4 Hours',
-                price: 'PKR 8,500',
-                desc: 'Explore the architectural marvel of Mohatta Palace and Clifton.',
+                price: '€45',
+                desc: 'Explore Alfama, Belém Tower, and Jerónimos Monastery.',
                 image: lisbon
             },
             {
-                name: 'Empress Market & Saddar',
+                name: 'Porto Wine Experience',
                 duration: '6 Hours',
-                price: 'PKR 12,000',
-                desc: 'Colonial heritage tour through the heart of Karachi.',
+                price: '€65',
+                desc: 'Visit historic cellars and the Ribeira district.',
                 image: porto
             },
             {
-                name: 'Do Darya Dinner Cruise',
-                duration: '5 Hours',
-                price: 'PKR 15,000',
-                desc: 'Luxury waterfront dining and coastal drive experience.',
+                name: 'Sintra Fairytale',
+                duration: '8 Hours',
+                price: '€85',
+                desc: 'Discover Pena Palace and Quinta da Regaleira.',
                 image: sintra
             }
         ]
     },
     {
         id: 'beach-tours',
-        category: 'Karachi Beach Tours',
+        category: 'Beach Tours',
         items: [
             {
-                name: 'French Beach Luxury',
+                name: 'Algarve Coastal Gem',
                 duration: 'Full Day',
-                price: 'PKR 25,000',
-                desc: 'Private hut access and premium coastal logistics.',
+                price: '€120',
+                desc: 'Visit Benagil Cave and Marinha Beach.',
                 image: algarve
             },
             {
-                name: 'Hawksbay & Turtle Beach',
+                name: 'Cascais & Estoril',
                 duration: '5 Hours',
-                price: 'PKR 18,000',
-                desc: 'Scenic drive through the Mangroves to the deep sea.',
+                price: '€55',
+                desc: 'Scenic drive along the Atlantic coast.',
                 image: cascais
             }
         ]
     },
     {
         id: 'boat-trips',
-        category: 'Marine Voyages',
+        category: 'Boat Trips & Cruises',
         items: [
             {
-                name: 'Churna Island Trip',
-                duration: '8 Hours',
-                price: 'PKR 35,000',
-                desc: 'Snorkeling and deep sea fishing adventure.',
+                name: 'Douro River Cruise',
+                duration: '2 Hours',
+                price: '€30',
+                desc: 'Relaxing trip under the six bridges of Porto.',
                 image: douro
             },
             {
-                name: 'Manora Island Sailing',
+                name: 'Tagus River Sailing',
                 duration: '3 Hours',
-                price: 'PKR 20,000',
-                desc: 'Private yacht experience from Kemari harbor.',
+                price: '€50',
+                desc: 'Private sailing experience in Lisbon.',
                 image: tagus
             }
         ]
@@ -92,7 +92,7 @@ export const Travel = () => {
                     <img
                         src={tour}
                         className="w-full h-full object-cover"
-                        alt="Karachi Travel Hero"
+                        alt="Portugal Travel Hero"
                     />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-dark/20 to-brand-dark/80" />
@@ -103,11 +103,11 @@ export const Travel = () => {
                         <span className="text-[10px] uppercase tracking-[0.6em] font-black text-brand-gold italic">Curated Journeys</span>
                     </div>
                     <h1 className="text-5xl md:text-9xl font-serif text-white leading-tight">
-                        City of <span className="text-brand-gold italic">Lights</span>
+                        Portuguese <span className="text-brand-gold italic">Soul</span>
                     </h1>
                     <p className="text-slate-300 text-[10px] md:text-xs max-w-2xl mx-auto uppercase tracking-[0.5em] font-bold leading-relaxed opacity-90">
                         Luxury transportation and specialized <br className="hidden md:block" />
-                        tours across the Karachi coast.
+                        tours across the Iberian Peninsula.
                     </p>
                 </div>
             </section>
@@ -119,7 +119,7 @@ export const Travel = () => {
                         <div key={section.id} className="space-y-16">
                             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-100 pb-8">
                                 <div className="space-y-2 text-left">
-                                    <p className="text-[10px] uppercase tracking-[0.4em] font-black text-brand-gold italic">{section.id === 'city-tours' ? 'Urban Heritage' : section.id === 'beach-tours' ? 'Arabian Coast' : 'Marine Voyages'}</p>
+                                    <p className="text-[10px] uppercase tracking-[0.4em] font-black text-brand-gold italic">{section.id === 'city-tours' ? 'Urban Heritage' : section.id === 'beach-tours' ? 'Atlantic Coast' : 'Maritine Voyages'}</p>
                                     <h2 className="text-4xl md:text-6xl font-serif text-slate-900 tracking-tight">{section.category}</h2>
                                 </div>
                                 <div className="flex items-center gap-4 text-slate-300">

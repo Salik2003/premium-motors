@@ -108,7 +108,7 @@ export const CarForm = ({ car, onSave, onCancel }: CarFormProps) => {
                             required
                         />
                         <Input
-                            label="Valuation (PKR)"
+                            label="Valuation (€)"
                             type="number"
                             value={formData.price}
                             onChange={e => setFormData({ ...formData, price: parseInt(e.target.value) })}

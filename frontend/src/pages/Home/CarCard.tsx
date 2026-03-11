@@ -9,7 +9,7 @@ interface CarCardProps {
 
 export const CarCard = ({ car }: CarCardProps) => {
     const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+923132723938';
-    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hi, I'm interested in the ${car.make} ${car.model} (${car.year}) priced at PKR ${car.price.toLocaleString()}.`)}`;
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hi, I'm interested in the ${car.make} ${car.model} (${car.year}) priced at €${car.price.toLocaleString()}.`)}`;
 
     return (
         <div className="group block bg-white border border-slate-100 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 hover:-translate-y-1">
@@ -59,7 +59,7 @@ export const CarCard = ({ car }: CarCardProps) => {
                 <div className="flex items-center justify-between pt-2">
                     <div className="space-y-1 text-left">
                         <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Price</p>
-                        <p className="text-lg font-serif font-bold text-brand-dark">PKR {car.price.toLocaleString()}</p>
+                        <p className="text-lg font-serif font-bold text-brand-dark">€{car.price.toLocaleString()}</p>
                     </div>
                     <div className="flex gap-2">
                         <a

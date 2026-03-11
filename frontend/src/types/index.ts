@@ -18,7 +18,6 @@ export interface Car {
     engine_cc: number;
     description?: string;
     images: string[];
-    features?: string[];
     is_featured: boolean;
     status: CarStatus;
     view_count: number;
