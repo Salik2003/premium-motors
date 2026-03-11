@@ -24,7 +24,7 @@ export const Hero = () => {
                     <h1 className="text-4xl md:text-7xl lg:text-9xl font-serif leading-[1.1] md:leading-[1.05] tracking-tight text-white mb-6 md:mb-10 lg:mb-12">
                         Luxury <br className="hidden md:block" />
                         <span className="text-brand-gold italic">Redefined</span> In <br className="hidden md:block" />
-                        Portugal
+                        Karachi
                     </h1>
                 </div>
 

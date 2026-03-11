@@ -6,20 +6,20 @@ const investmentPackages = [
     {
         id: 'comfort',
         title: 'COMFORT PACKAGE',
-        carNames: 'Citroen C5 Aircross, Hyundai Kona, Kia Niro',
-        roi: '600€/month',
-        investment: '17,000€',
+        carNames: 'Toyota Corolla, Honda Civic, Hyundai Elantra',
+        roi: 'PKR 150k/month',
+        investment: 'PKR 6M',
         image: cp,
-        features: ['Fuel efficient hybrid models', 'High reliability and low maintenance', 'Perfect for urban rideshare services']
+        features: ['Local luxury sedans', 'High resale value', 'Ideal for executive corporate rent-a-car']
     },
     {
         id: 'limousine',
         title: 'LIMOUSINE PACKAGE',
-        carNames: 'BYD Auto 3, Tesla Model 3',
-        roi: '1,000€/month',
-        investment: '25,000€',
+        carNames: 'Toyota Land Cruiser, Range Rover, Audi e-tron',
+        roi: 'PKR 500k/month',
+        investment: 'PKR 45M',
         image: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&q=80',
-        features: ['Executive electric vehicles', 'Premium interior specifications', 'Targeted at corporate and VIP clients']
+        features: ['Executive SUVs and EVs', 'Premium bulletproofing options', 'Targeted at high-profile VIP clients']
     }
 ]
 

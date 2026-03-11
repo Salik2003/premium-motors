@@ -14,67 +14,67 @@ import tour from "../../assets/tour.avif"
 const tours = [
     {
         id: 'city-tours',
-        category: 'Portugal City Tours',
+        category: 'Karachi City Tours',
         items: [
             {
-                name: 'Lisbon Coastal Heritage',
+                name: 'Mohatta Palace Heritage',
                 duration: '4 Hours',
-                price: '150€',
-                desc: 'Explore the architectural marvels of Belém and the historic Alfama district.',
+                price: 'PKR 8,500',
+                desc: 'Explore the architectural marvel of Mohatta Palace and Clifton.',
                 image: lisbon
             },
             {
-                name: 'Porto Wine Experience',
+                name: 'Empress Market & Saddar',
                 duration: '6 Hours',
-                price: '180€',
-                desc: 'A premium tour through the Ribeira and the historic Port wine cellars.',
+                price: 'PKR 12,000',
+                desc: 'Colonial heritage tour through the heart of Karachi.',
                 image: porto
             },
             {
-                name: 'Sintra Fairytale Tour',
+                name: 'Do Darya Dinner Cruise',
                 duration: '5 Hours',
-                price: '220€',
-                desc: 'Visit the Pena Palace and the mystical gardens of Quinta da Regaleira.',
+                price: 'PKR 15,000',
+                desc: 'Luxury waterfront dining and coastal drive experience.',
                 image: sintra
             }
         ]
     },
     {
         id: 'beach-tours',
-        category: 'Coastal Adventures',
+        category: 'Karachi Beach Tours',
         items: [
             {
-                name: 'Algarve Luxury Escape',
+                name: 'French Beach Luxury',
                 duration: 'Full Day',
-                price: '350€',
-                desc: 'Private access to hidden caves and the most exclusive beaches in the south.',
+                price: 'PKR 25,000',
+                desc: 'Private hut access and premium coastal logistics.',
                 image: algarve
             },
             {
-                name: 'Cascais & Estoril Drive',
+                name: 'Hawksbay & Turtle Beach',
                 duration: '5 Hours',
-                price: '190€',
-                desc: 'Scenic coastal drive from Lisbon to the "Portuguese Riviera".',
+                price: 'PKR 18,000',
+                desc: 'Scenic drive through the Mangroves to the deep sea.',
                 image: cascais
             }
         ]
     },
     {
         id: 'boat-trips',
-        category: 'Ocean Voyages',
+        category: 'Marine Voyages',
         items: [
             {
-                name: 'Douro Valley Cruise',
+                name: 'Churna Island Trip',
                 duration: '8 Hours',
-                price: '450€',
-                desc: 'Private luxury sailing through the heart of the Douro wine region.',
+                price: 'PKR 35,000',
+                desc: 'Snorkeling and deep sea fishing adventure.',
                 image: douro
             },
             {
-                name: 'Tagus Sunset Sailing',
+                name: 'Manora Island Sailing',
                 duration: '3 Hours',
-                price: '120€',
-                desc: 'Experience the Lisbon skyline from a private yacht at sunset.',
+                price: 'PKR 20,000',
+                desc: 'Private yacht experience from Kemari harbor.',
                 image: tagus
             }
         ]
@@ -92,7 +92,7 @@ export const Travel = () => {
                     <img
                         src={tour}
                         className="w-full h-full object-cover"
-                        alt="Portugal Travel Hero"
+                        alt="Karachi Travel Hero"
                     />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-dark/20 to-brand-dark/80" />
@@ -103,11 +103,11 @@ export const Travel = () => {
                         <span className="text-[10px] uppercase tracking-[0.6em] font-black text-brand-gold italic">Curated Journeys</span>
                     </div>
                     <h1 className="text-5xl md:text-9xl font-serif text-white leading-tight">
-                        Discover <span className="text-brand-gold italic">Portugal</span>
+                        City of <span className="text-brand-gold italic">Lights</span>
                     </h1>
                     <p className="text-slate-300 text-[10px] md:text-xs max-w-2xl mx-auto uppercase tracking-[0.5em] font-bold leading-relaxed opacity-90">
                         Luxury transportation and specialized <br className="hidden md:block" />
-                        tours across the Portuguese coast.
+                        tours across the Karachi coast.
                     </p>
                 </div>
             </section>

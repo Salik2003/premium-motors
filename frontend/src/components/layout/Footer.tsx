@@ -37,6 +37,7 @@ export const Footer = () => {
                                 { name: 'Invest', path: '/invest' },
                                 { name: 'Travel', path: '/travel' },
                                 { name: 'Chauffeur', path: '/chauffeur' },
+                                { name: 'Our Story', path: '/about' },
                                 { name: 'Contact Us', path: '/contact' },
                             ].map((link) => (
                                 <li key={link.name}>
