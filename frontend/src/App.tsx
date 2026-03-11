@@ -4,7 +4,6 @@ import { Home } from './pages/Home/index'
 import { CarDetail } from './pages/CarDetail/index'
 import { Invest } from './pages/Invest/index'
 import { InvestDetail } from './pages/Invest/InvestDetail'
-import { About } from './pages/About/index'
 import { Contact } from './pages/Contact/index'
 import { Travel } from './pages/Travel/index'
 import { Chauffeur } from './pages/Chauffeur/index'
@@ -45,7 +44,6 @@ function App() {
                 <Route path="/invest/:id" element={<InvestDetail />} />
                 <Route path="/travel" element={<Travel />} />
                 <Route path="/chauffeur" element={<Chauffeur />} />
-                <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
               </Route>
 
