@@ -31,8 +31,7 @@ export const CarDetail = () => {
         const message = `Hello, I am interested in the following car listing:
 
 *${displayCar.title}*
-Price: PKR ${(displayCar.price / 1000000).toFixed(1)}M
-City: ${displayCar.city}
+Price: €${displayCar.price.toLocaleString()}
 
 Listing Link: ${window.location.href}
 
@@ -105,15 +104,11 @@ Is this vehicle still available?`;
                                     <span>{displayCar.year}</span>
                                 </div>
                                 <h1 className="text-3xl font-serif text-slate-900 leading-tight">{displayCar.title}</h1>
-                                <div className="flex items-center gap-2 text-slate-400 text-xs font-semibold">
-                                    <MapPin size={14} className="text-brand-gold" />
-                                    {displayCar.city}
-                                </div>
                             </div>
 
                             <div className="space-y-1 pt-6 border-t border-slate-50">
                                 <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Reserve Price</p>
-                                <p className="text-4xl font-serif font-bold text-brand-dark">PKR {(displayCar.price / 1000000).toFixed(1)}M</p>
+                                <p className="text-4xl font-serif font-bold text-brand-dark">€{displayCar.price.toLocaleString()}</p>
                             </div>
 
                             <div className="grid grid-cols-2 gap-4">

@@ -1,5 +1,7 @@
 import { ArrowRight, CheckCircle2, MessageSquare, Users, FileText, Car as CarIcon, CreditCard, GraduationCap, ClipboardList, Key, TrendingUp, ChevronRight } from 'lucide-react'
 import { WhatsAppIcon } from '../../components/layout/MainLayout'
+import lp from "../../assets/BYD & Tesla.png"
+import cp from "../../assets/kia, kuna c5.jpg"
 
 const investmentPackages = [
     {
@@ -8,7 +10,7 @@ const investmentPackages = [
         carNames: 'Citroen C5 Aircross, Hyundai Kona, Kia Niro',
         roi: '€600/month',
         investment: '€17,000',
-        image: 'https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?auto=format&fit=crop&q=80',
+        image: cp,
         features: ['Fuel efficient hybrid models', 'High reliability and low maintenance', 'Perfect for urban rideshare services']
     },
     {
@@ -17,7 +19,7 @@ const investmentPackages = [
         carNames: 'BYD Auto 3, Tesla Model 3',
         roi: '€1,000/month',
         investment: '€25,000',
-        image: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&q=80',
+        image: lp,
         features: ['Executive electric vehicles', 'Premium interior specifications', 'Targeted at corporate and VIP clients']
     }
 ]
@@ -150,19 +152,19 @@ export const Invest = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
                         {procedureSteps.map((step, sIdx) => {
                             // User request: "upper row (1-2-3) should be at bottom"
-                            // Row 1: 07, 08, 09 (lg:order 1,2,3)
+                            // Row 1: 01, 02, 03 (lg:order 1,2,3)
                             // Row 2: 06, 05, 04 (lg:order 4,5,6)
-                            // Row 3: 01, 02, 03 (lg:order 7,8,9)
+                            // Row 3: 07, 08, 09 (lg:order 7,8,9)
                             const gridOrder =
-                                sIdx === 6 ? 'lg:order-1' :
-                                    sIdx === 7 ? 'lg:order-2' :
-                                        sIdx === 8 ? 'lg:order-3' :
-                                            sIdx === 5 ? 'lg:order-4' : // Step 06 at pos 4
-                                                sIdx === 4 ? 'lg:order-5' : // Step 05 at pos 5
-                                                    sIdx === 3 ? 'lg:order-6' : // Step 04 at pos 6
-                                                        sIdx === 0 ? 'lg:order-7' :
-                                                            sIdx === 1 ? 'lg:order-8' :
-                                                                sIdx === 2 ? 'lg:order-9' : '';
+                                sIdx === 0 ? 'lg:order-1' :
+                                    sIdx === 1 ? 'lg:order-2' :
+                                        sIdx === 2 ? 'lg:order-3' :
+                                            sIdx === 5 ? 'lg:order-4' : // Step 06 at pos 4 (L)
+                                                sIdx === 4 ? 'lg:order-5' : // Step 05 at pos 5 (M)
+                                                    sIdx === 3 ? 'lg:order-6' : // Step 04 at pos 6 (R)
+                                                        sIdx === 6 ? 'lg:order-7' :
+                                                            sIdx === 7 ? 'lg:order-8' :
+                                                                sIdx === 8 ? 'lg:order-9' : '';
 
                             return (
                                 <div
@@ -182,16 +184,27 @@ export const Invest = () => {
                                         <p className="text-[10px] text-slate-500 uppercase tracking-widest font-black leading-relaxed">{step.desc}</p>
                                     </div>
 
-                                    {/* Flow Arrows logic for the new weird order */}
-                                    {/* 1 -> 2, 2 -> 3 (at bottom now) */}
+                                    {/* Flow Arrows */}
+                                    {/* Row 1: 01, 02 -> Right */}
                                     {(sIdx === 0 || sIdx === 1) && (
-                                        <div className="hidden lg:block absolute top-1/2 -right-6 -translate-y-1/2 text-white/10 group-hover:text-brand-gold/20 transition-colors z-10">
+                                        <div className="hidden lg:block absolute top-1/2 -right-6 -translate-y-1/2 text-white group-hover:text-brand-gold transition-colors z-10">
                                             <ArrowRight size={24} />
                                         </div>
                                     )}
 
-                                    {/* Flow Arrows for 3 -> 4, etc. - skipping detailed arrow logic for now to avoid confusion, 
-                                        but following the basic 1->2->3 logic in their new positions. */}
+                                    {/* Row 2: 04, 05 -> Left */}
+                                    {(sIdx === 3 || sIdx === 4) && (
+                                        <div className="hidden lg:block absolute top-1/2 -left-6 -translate-y-1/2 text-white group-hover:text-brand-gold transition-colors z-10 rotate-180">
+                                            <ArrowRight size={24} />
+                                        </div>
+                                    )}
+
+                                    {/* Row 3: 07, 08 -> Right */}
+                                    {(sIdx === 6 || sIdx === 7) && (
+                                        <div className="hidden lg:block absolute top-1/2 -right-6 -translate-y-1/2 text-white group-hover:text-brand-gold transition-colors z-10">
+                                            <ArrowRight size={24} />
+                                        </div>
+                                    )}
 
                                     {sIdx < procedureSteps.length - 1 && (
                                         <div className="hidden sm:block lg:hidden absolute top-1/2 -right-6 -translate-y-1/2 text-white/10 group-hover:text-brand-gold/20 transition-colors z-10">
