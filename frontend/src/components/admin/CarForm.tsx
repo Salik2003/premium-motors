@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
-import { X, Upload, Save, Trash2 } from 'lucide-react'
+import { X, Upload, Save, Trash2, Loader2 } from 'lucide-react'
 import { Button } from '../ui/Button'
 import { Input } from '../ui/Input'
 import type { Car } from '../../types'
+import { supabase } from '../../lib/supabase'
 
 interface CarFormProps {
     car?: Car | null;
@@ -41,19 +42,46 @@ export const CarForm = ({ car, onSave, onCancel }: CarFormProps) => {
         onSave(formData)
     }
 
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const [uploading, setUploading] = useState(false)
+    const [uploadError, setUploadError] = useState<string | null>(null)
+
+    const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const files = e.target.files
-        if (files && files.length > 0) {
-            const newImages: string[] = []
-            Array.from(files).forEach(file => {
-                const url = URL.createObjectURL(file)
-                newImages.push(url)
-            })
-            setFormData(prev => ({
-                ...prev,
-                images: [...(prev.images || []), ...newImages]
-            }))
+        if (!files || files.length === 0) return
+
+        setUploading(true)
+        setUploadError(null)
+
+        const uploadedUrls: string[] = []
+
+        for (const file of Array.from(files)) {
+            const fileExt = file.name.split('.').pop()
+            const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`
+            const filePath = `cars/${fileName}`
+
+            const { error } = await supabase.storage
+                .from('car-images')
+                .upload(filePath, file, { upsert: false })
+
+            if (error) {
+                console.error('Upload error:', error)
+                setUploadError(`Failed to upload ${file.name}: ${error.message}`)
+                continue
+            }
+
+            const { data: publicUrlData } = supabase.storage
+                .from('car-images')
+                .getPublicUrl(filePath)
+
+            uploadedUrls.push(publicUrlData.publicUrl)
         }
+
+        setFormData(prev => ({
+            ...prev,
+            images: [...(prev.images || []), ...uploadedUrls]
+        }))
+
+        setUploading(false)
     }
 
     const triggerFileInput = () => {
@@ -176,6 +204,11 @@ export const CarForm = ({ car, onSave, onCancel }: CarFormProps) => {
 
                     <div className="space-y-4">
                         <label className="text-[10px] uppercase tracking-widest font-black text-slate-400 dark:text-slate-500">Asset Gallery</label>
+                        {uploadError && (
+                            <div className="text-red-500 text-[10px] font-bold uppercase tracking-widest bg-red-50 dark:bg-red-500/10 border border-red-100 dark:border-red-500/20 rounded-2xl px-4 py-3">
+                                {uploadError}
+                            </div>
+                        )}
                         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
                             <input
                                 type="file"
@@ -184,6 +217,7 @@ export const CarForm = ({ car, onSave, onCancel }: CarFormProps) => {
                                 accept="image/*"
                                 className="hidden"
                                 onChange={handleFileChange}
+                                disabled={uploading}
                             />
                             {formData.images?.map((img, i) => (
                                 <div key={i} className="group relative aspect-video bg-slate-100 dark:bg-white/5 rounded-xl overflow-hidden border border-slate-100 dark:border-white/10 shadow-sm">
@@ -200,10 +234,20 @@ export const CarForm = ({ car, onSave, onCancel }: CarFormProps) => {
                             <button
                                 type="button"
                                 onClick={triggerFileInput}
-                                className="aspect-video border-2 border-dashed border-slate-100 dark:border-white/10 rounded-xl flex flex-col items-center justify-center gap-2 text-slate-300 hover:text-brand-gold hover:border-brand-gold transition-all bg-slate-50/30 dark:bg-white/5"
+                                disabled={uploading}
+                                className="aspect-video border-2 border-dashed border-slate-100 dark:border-white/10 rounded-xl flex flex-col items-center justify-center gap-2 text-slate-300 hover:text-brand-gold hover:border-brand-gold transition-all bg-slate-50/30 dark:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                <Upload size={18} />
-                                <span className="text-[8px] font-black uppercase tracking-widest">Add Image</span>
+                                {uploading ? (
+                                    <>
+                                        <Loader2 size={18} className="animate-spin text-brand-gold" />
+                                        <span className="text-[8px] font-black uppercase tracking-widest text-brand-gold">Uploading...</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Upload size={18} />
+                                        <span className="text-[8px] font-black uppercase tracking-widest">Add Image</span>
+                                    </>
+                                )}
                             </button>
                         </div>
                     </div>
