@@ -39,7 +39,9 @@ export const CarForm = ({ car, onSave, onCancel }: CarFormProps) => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        onSave(formData)
+        // Strip read-only fields that Supabase won't accept on update
+        const { id, created_at, view_count, is_featured, ...savableData } = formData as Car
+        onSave(savableData)
     }
 
     const [uploading, setUploading] = useState(false)

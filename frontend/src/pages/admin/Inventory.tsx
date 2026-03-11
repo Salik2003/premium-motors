@@ -39,6 +39,10 @@ export const Inventory = () => {
             queryClient.invalidateQueries({ queryKey: ['admin-cars'] });
             setIsFormOpen(false);
             setEditingCar(null);
+        },
+        onError: (error) => {
+            console.error('Save error:', error);
+            alert(`Failed to save: ${error.message}`);
         }
     });
 
