@@ -1,24 +1,25 @@
 import { ArrowRight, CheckCircle2, MessageSquare, Users, FileText, Car as CarIcon, CreditCard, GraduationCap, ClipboardList, Key, TrendingUp, ChevronRight } from 'lucide-react'
 import { WhatsAppIcon } from '../../components/layout/MainLayout'
+import cp from "../../assets/BYD & Tesla.png"
 
 const investmentPackages = [
     {
         id: 'comfort',
         title: 'COMFORT PACKAGE',
-        carNames: 'Toyota Corolla, Honda Civic, Hyundai Elantra',
-        roi: 'PKR 150k/month',
-        investment: 'PKR 6M',
-        image: 'https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?auto=format&fit=crop&q=80',
-        features: ['Local luxury sedans', 'High resale value', 'Ideal for executive corporate rent-a-car']
+        carNames: 'Citroen C5 Aircross, Hyundai Kona, Kia Niro',
+        roi: '600€/month',
+        investment: '17,000€',
+        image: cp,
+        features: ['Fuel efficient hybrid models', 'High reliability and low maintenance', 'Perfect for urban rideshare services']
     },
     {
         id: 'limousine',
         title: 'LIMOUSINE PACKAGE',
-        carNames: 'Toyota Land Cruiser, Range Rover, Audi e-tron',
-        roi: 'PKR 500k/month',
-        investment: 'PKR 45M',
+        carNames: 'BYD Auto 3, Tesla Model 3',
+        roi: '1,000€/month',
+        investment: '25,000€',
         image: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&q=80',
-        features: ['Executive SUVs and EVs', 'Premium bulletproofing options', 'Targeted at high-profile VIP clients']
+        features: ['Executive electric vehicles', 'Premium interior specifications', 'Targeted at corporate and VIP clients']
     }
 ]
 
@@ -112,7 +113,7 @@ export const Invest = () => {
                                         className="inline-flex items-center gap-4 px-10 py-5 bg-[#25D366] text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.3em] hover:scale-105 active:scale-95 transition-all shadow-xl shadow-[#25D366]/20"
                                     >
                                         <WhatsAppIcon size={20} />
-                                        Inquire via WhatsApp
+                                        Invest via WhatsApp
                                         <ChevronRight size={16} />
                                     </a>
                                 </div>
