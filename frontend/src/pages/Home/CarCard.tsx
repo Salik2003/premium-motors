@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import type { Car } from '../../types'
 import { WhatsAppIcon } from '../../components/layout/MainLayout'
+import { slugify } from '../../lib/utils'
 
 interface CarCardProps {
     car: Car;
@@ -11,10 +12,12 @@ export const CarCard = ({ car }: CarCardProps) => {
     const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+923132723938';
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hi, I'm interested in the ${car.make} ${car.model} (${car.year}) priced at €${car.price.toLocaleString()}.`)}`;
 
+    const carSlug = `${slugify(car.title)}--${car.id}`;
+
     return (
         <div className="group block bg-white border border-slate-100 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 hover:-translate-y-1">
             <Link
-                to={`/cars/${car.id}`}
+                to={`/cars/${carSlug}`}
                 className="relative block aspect-[16/10] overflow-hidden"
             >
                 <img
@@ -34,7 +37,7 @@ export const CarCard = ({ car }: CarCardProps) => {
                         <span className="w-1 h-1 rounded-full bg-slate-200" />
                         <span className="text-slate-400">{car.year}</span>
                     </div>
-                    <Link to={`/cars/${car.id}`}>
+                    <Link to={`/cars/${carSlug}`}>
                         <h3 className="text-xl font-serif text-slate-900 group-hover:text-brand-gold transition-colors leading-tight">{car.title}</h3>
                     </Link>
                 </div>
@@ -72,7 +75,7 @@ export const CarCard = ({ car }: CarCardProps) => {
                             <WhatsAppIcon size={18} />
                         </a>
                         <Link
-                            to={`/cars/${car.id}`}
+                            to={`/cars/${carSlug}`}
                             className="bg-slate-50 p-2.5 rounded-full hover:bg-brand-dark hover:text-white transition-all duration-300 flex items-center justify-center"
                         >
                             <ArrowRight size={18} strokeWidth={2.5} />

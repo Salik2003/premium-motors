@@ -39,7 +39,7 @@ function App() {
               <Route element={<MainLayout />}>
                 <Route path="/" element={<Navigate to="/home" replace />} />
                 <Route path="/home" element={<Home />} />
-                <Route path="/cars/:id" element={<CarDetail />} />
+                <Route path="/cars/:slug" element={<CarDetail />} />
                 <Route path="/invest" element={<Invest />} />
                 <Route path="/invest/:id" element={<InvestDetail />} />
                 <Route path="/travel" element={<Travel />} />

@@ -133,9 +133,9 @@ export const Travel = () => {
                                     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hi, I want to book the ${item.name} (${section.category}).`)}`;
 
                                     return (
-                                        <div key={idx} className="group bg-white border border-slate-100 rounded-[3rem] overflow-hidden hover:shadow-2xl hover:shadow-brand-gold/10 transition-all duration-700 hover:-translate-y-2 flex flex-col h-full">
+                                        <div key={idx} className="group bg-brand-dark border border-white/5 rounded-[3rem] overflow-hidden hover:shadow-2xl hover:shadow-brand-gold/10 transition-all duration-700 hover:-translate-y-2 flex flex-col h-full text-white">
                                             {/* Card Image Wrapper */}
-                                            <div className="relative aspect-[4/5] overflow-hidden shrink-0">
+                                            <div className="relative aspect-[16/13] overflow-hidden shrink-0">
                                                 <img
                                                     src={item.image}
                                                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
@@ -160,7 +160,7 @@ export const Travel = () => {
                                                         </div>
                                                         <div className="text-right">
                                                             <p className="text-[9px] uppercase tracking-widest font-black opacity-70 italic">Starting From</p>
-                                                            <p className="text-2xl font-serif font-bold text-brand-gold">{item.price}</p>
+                                                            <p className="text-2xl font-serif font-bold text-white">{item.price}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -174,9 +174,9 @@ export const Travel = () => {
                                                             {section.id === 'beach-tours' && <Palmtree size={14} />}
                                                             {section.id === 'boat-trips' && <Ship size={14} />}
                                                         </div>
-                                                        <h3 className="text-xl md:text-2xl font-serif text-slate-900 group-hover:text-brand-gold transition-colors">{item.name}</h3>
+                                                        <h3 className="text-xl md:text-2xl font-serif text-white group-hover:text-brand-gold transition-colors">{item.name}</h3>
                                                     </div>
-                                                    <p className="text-slate-400 text-[11px] leading-relaxed font-medium line-clamp-2">{item.desc}</p>
+                                                    <p className="text-slate-300 text-[11px] leading-relaxed font-medium line-clamp-2">{item.desc}</p>
                                                 </div>
 
                                                 <div className="mt-auto">

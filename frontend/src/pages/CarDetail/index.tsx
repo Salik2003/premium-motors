@@ -1,18 +1,24 @@
+import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { supabase } from '../../lib/supabase'
-import { ArrowLeft, MessageCircle, Share2, ShieldCheck } from 'lucide-react'
+import { ArrowLeft, MessageCircle, Share2, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Skeleton } from '../../components/ui/Skeleton'
 import type { Car } from '../../types'
 import { DUMMY_CARS } from '../../constants/dummyData'
 
 export const CarDetail = () => {
-    const { id } = useParams()
+    const { slug } = useParams()
     const navigate = useNavigate()
+    const [selectedImageIndex, setSelectedImageIndex] = useState(0)
+
+    // Extract ID from slug (it's the part after the double hyphen)
+    const id = slug?.includes('--') ? slug.split('--').pop() : slug
 
     const { data: car, isLoading } = useQuery({
         queryKey: ['car', id],
         queryFn: async () => {
+            if (!id) return null
             const { data, error } = await supabase
                 .from('cars')
                 .select('*')
@@ -26,6 +32,16 @@ export const CarDetail = () => {
 
     // Fallback to dummy data for demonstration if not found in DB
     const displayCar = car || DUMMY_CARS.find(c => c.id === id) || DUMMY_CARS[0];
+
+    const totalImages = displayCar.images.length
+
+    const goToPrev = () => {
+        setSelectedImageIndex((prev) => (prev === 0 ? totalImages - 1 : prev - 1))
+    }
+
+    const goToNext = () => {
+        setSelectedImageIndex((prev) => (prev === totalImages - 1 ? 0 : prev + 1))
+    }
 
     const handleWhatsApp = () => {
         const message = `Hello, I am interested in the following car listing:
@@ -65,17 +81,56 @@ Is this vehicle still available?`;
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
                     {/* Media Column */}
-                    <div className="lg:col-span-2 space-y-8">
-                        <div className="aspect-video bg-slate-50 rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-2xl shadow-slate-200/50">
-                            <img
-                                src={displayCar.images[0]}
-                                alt={displayCar.title}
-                                className="w-full h-full object-cover"
-                            />
+                    <div className="lg:col-span-2 space-y-6">
+                        {/* Main Image with Slider Arrows */}
+                        <div className="relative group bg-slate-50 rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-2xl shadow-slate-200/50">
+                            <div className="w-full h-[350px] md:h-[450px] lg:h-[500px] flex items-center justify-center bg-black/5">
+                                <img
+                                    src={displayCar.images[selectedImageIndex]}
+                                    alt={displayCar.title}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+
+                            {/* Left Arrow */}
+                            {totalImages > 1 && (
+                                <button
+                                    onClick={goToPrev}
+                                    className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-slate-600 hover:text-brand-gold hover:bg-white shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110"
+                                >
+                                    <ChevronLeft size={24} />
+                                </button>
+                            )}
+
+                            {/* Right Arrow */}
+                            {totalImages > 1 && (
+                                <button
+                                    onClick={goToNext}
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-slate-600 hover:text-brand-gold hover:bg-white shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110"
+                                >
+                                    <ChevronRight size={24} />
+                                </button>
+                            )}
+
+                            {/* Image Counter */}
+                            {totalImages > 1 && (
+                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full">
+                                    {selectedImageIndex + 1} / {totalImages}
+                                </div>
+                            )}
                         </div>
-                        <div className="grid grid-cols-4 gap-4">
+
+                        {/* Thumbnail Grid */}
+                        <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-3">
                             {displayCar.images.map((img, i) => (
-                                <div key={i} className="aspect-square bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 cursor-pointer hover:border-brand-gold transition-all hover:scale-105">
+                                <div
+                                    key={i}
+                                    onClick={() => setSelectedImageIndex(i)}
+                                    className={`aspect-square bg-slate-50 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 ${i === selectedImageIndex
+                                        ? 'ring-2 ring-brand-gold border-brand-gold shadow-lg shadow-brand-gold/20'
+                                        : 'border border-slate-100 hover:border-brand-gold/50'
+                                        }`}
+                                >
                                     <img src={img} alt={`Gallery ${i}`} className="w-full h-full object-cover" />
                                 </div>
                             ))}

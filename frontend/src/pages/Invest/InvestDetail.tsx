@@ -2,6 +2,8 @@ import { useParams, Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, CheckCircle2, TrendingUp, DollarSign, ShieldCheck, ChevronRight, Calculator } from 'lucide-react'
 import { Button } from '../../components/ui/Button'
 import { DUMMY_CARS } from '../../constants/dummyData'
+import { slugify } from '../../lib/utils'
+
 
 const investmentDetails: Record<string, any> = {
     'limousine': {
@@ -197,7 +199,7 @@ export const InvestDetail = () => {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {DUMMY_CARS.slice(0, 6).map(car => (
-                            <Link to={`/cars/${car.id}`} key={car.id} className="group bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-2 transition-all duration-700">
+                            <Link to={`/cars/${slugify(car.title)}--${car.id}`} key={car.id} className="group bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-2 transition-all duration-700">
                                 <div className="aspect-[16/10] overflow-hidden relative">
                                     <img src={car.images[0]} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt={car.title} />
                                     <div className="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[8px] font-black uppercase tracking-widest text-brand-dark">
