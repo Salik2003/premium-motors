@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2, TrendingUp, ChevronRight } from 'lucide-react'
+import { ArrowRight, TrendingUp, ChevronRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import lp from "../../assets/BYD & Tesla.png"
 import cp from "../../assets/comfort-package.avif"
