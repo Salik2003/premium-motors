@@ -37,7 +37,7 @@ export const Chauffeur = () => {
             {/* Hero */}
             <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-brand-dark">
                 <div className="absolute inset-0 z-0">
-                    <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80" className="w-full h-full object-cover" alt="Premium Chauffeur Service" />
+                    <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80" loading="lazy" className="w-full h-full object-cover" alt="Premium Chauffeur Service" />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent z-0" />
 

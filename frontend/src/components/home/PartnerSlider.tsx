@@ -1,5 +1,4 @@
-import { useEffect, memo } from 'react'
-import AOS from 'aos'
+import { memo } from 'react'
 
 import dnataLogo from '../../assets/trust/dnata.jpg'
 import emiratesLogo from '../../assets/trust/emirates.png'
@@ -16,14 +15,6 @@ const partners = [
 ]
 
 export const PartnerSlider = memo(() => {
-    // Refresh AOS once on mount
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            AOS.refresh();
-        }, 100);
-        return () => clearTimeout(timer);
-    }, []);
-
     return (
         <section className="py-24 bg-white overflow-hidden border-t border-slate-50">
             <div className="max-w-7xl mx-auto px-8 mb-16 text-center">

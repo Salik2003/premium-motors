@@ -26,7 +26,7 @@ export const Navbar = () => {
         <nav className="fixed top-0 left-0 right-0 z-[100] border-b border-slate-100 bg-white md:bg-white/90 md:backdrop-blur-md px-4 md:px-12 py-3 flex items-center justify-between transition-all duration-300">
             <Link to="/" className="flex items-center gap-2 group relative z-[110]" data-aos="fade-right">
                 <div className="w-8 h-8 md:w-10 md:h-10 transition-transform duration-500 group-hover:scale-110">
-                    <img src={pmLogo} alt="Premium Motors Logo" className="w-full h-full object-contain" />
+                    <img src={pmLogo} alt="Premium Motors Logo" fetchPriority="high" className="w-full h-full object-contain" />
                 </div>
                 <div className="flex flex-col">
                     <span className="text-sm md:text-lg font-serif font-black tracking-[0.1em] text-brand-dark leading-none">PREMIUM</span>

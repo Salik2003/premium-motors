@@ -1,8 +1,77 @@
-import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react'
+import { useState } from 'react'
+import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle2 } from 'lucide-react'
 import { Button } from '../../components/ui/Button'
 import { Input } from '../../components/ui/Input'
+import { supabase } from '../../lib/supabase'
 
 export const Contact = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+    })
+    const [isSubmitting, setIsSubmitting] = useState(false)
+    const [isSuccess, setIsSuccess] = useState(false)
+    const [error, setError] = useState<string | null>(null)
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        setIsSubmitting(true)
+        setError(null)
+
+        try {
+            const { error: submitError } = await supabase
+                .from('contact_messages')
+                .insert([
+                    {
+                        name: formData.name,
+                        email: formData.email,
+                        phone: formData.phone,
+                        message: formData.message,
+                        is_read: false
+                    }
+                ])
+
+            if (submitError) throw submitError
+
+            setIsSuccess(true)
+            setFormData({ name: '', email: '', phone: '', message: '' })
+        } catch (err: any) {
+            console.error('Submission error:', err)
+            setError(err.message || 'Failed to send message. Please try again.')
+        } finally {
+            setIsSubmitting(false)
+        }
+    }
+
+    if (isSuccess) {
+        return (
+            <div className="pt-24 min-h-screen bg-white flex items-center justify-center px-8">
+                <div className="max-w-md w-full text-center space-y-8 animate-in zoom-in duration-500">
+                    <div className="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center mx-auto text-green-500 shadow-xl shadow-green-100">
+                        <CheckCircle2 size={48} strokeWidth={1.5} />
+                    </div>
+                    <div className="space-y-4">
+                        <h2 className="text-4xl font-serif text-slate-900">Message Received</h2>
+                        <p className="text-slate-500 font-medium uppercase tracking-widest text-[10px] leading-loose">
+                            Our concierge team has been notified. <br />
+                            Expect a response within 2 hours.
+                        </p>
+                    </div>
+                    <Button
+                        variant="primary"
+                        size="lg"
+                        className="w-full"
+                        onClick={() => setIsSuccess(false)}
+                    >
+                        Send Another Inquiry
+                    </Button>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className="pt-24 min-h-screen bg-white">
             <section className="max-w-7xl mx-auto px-8 py-32">
@@ -85,21 +154,54 @@ export const Contact = () => {
                             <h3 className="text-3xl font-serif text-slate-900">Send an Inquiry</h3>
                             <p className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Expected response time: Under 2 hours</p>
                         </div>
-                        <form className="space-y-10">
-                            <Input label="Your Full Name" placeholder="EX: TAHIM KHAN" />
+                        <form className="space-y-10" onSubmit={handleSubmit}>
+                            <Input
+                                label="Your Full Name"
+                                placeholder="EX: TAHIM KHAN"
+                                required
+                                value={formData.name}
+                                onChange={e => setFormData({ ...formData, name: e.target.value })}
+                            />
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                                <Input label="Email Address" placeholder="KHAN@CLIENT.COM" />
-                                <Input label="Phone Number" placeholder="+92 3XX XXXXXXX" />
+                                <Input
+                                    label="Email Address"
+                                    placeholder="KHAN@CLIENT.COM"
+                                    type="email"
+                                    required
+                                    value={formData.email}
+                                    onChange={e => setFormData({ ...formData, email: e.target.value })}
+                                />
+                                <Input
+                                    label="Phone Number"
+                                    placeholder="+92 3XX XXXXXXX"
+                                    required
+                                    value={formData.phone}
+                                    onChange={e => setFormData({ ...formData, phone: e.target.value })}
+                                />
                             </div>
                             <div className="space-y-3">
-                                <label className="block text-[10px] uppercase tracking-widest text-slate-400 font-bold">Message</label>
+                                <label className="block text-[10px] uppercase tracking-widest text-slate-400 font-black">Message</label>
                                 <textarea
                                     rows={5}
+                                    required
+                                    value={formData.message}
+                                    onChange={e => setFormData({ ...formData, message: e.target.value })}
                                     className="w-full bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl text-xs text-slate-700 font-bold focus:outline-none focus:border-brand-gold appearance-none uppercase tracking-widest placeholder:text-slate-300"
                                     placeholder="TELL US ABOUT THE VEHICLE OR PLAN YOU ARE INTERESTED IN"
                                 />
                             </div>
-                            <Button size="lg" className="w-full h-16 text-[10px] uppercase tracking-[0.3em]" icon={Send}>
+
+                            {error && (
+                                <p className="text-red-500 text-[10px] uppercase tracking-widest font-black text-center">{error}</p>
+                            )}
+
+                            <Button
+                                size="lg"
+                                type="submit"
+                                className="w-full h-16 text-[10px] uppercase tracking-[0.3em]"
+                                icon={Send}
+                                isLoading={isSubmitting}
+                            >
                                 Dispatch Message
                             </Button>
                         </form>

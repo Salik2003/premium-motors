@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { supabase } from '../../lib/supabase'
-import { CheckCircle, Clock, XCircle, Phone, MapPin, DollarSign, Calendar, AlertCircle } from 'lucide-react'
+import { CheckCircle, Clock, XCircle, Phone, MapPin, DollarSign, Calendar, AlertCircle, Trash2 } from 'lucide-react'
 import type { InvestorLead } from '../../types'
 
 export const InvestorLeads = () => {
@@ -26,8 +26,30 @@ export const InvestorLeads = () => {
         },
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['admin-leads'] });
+        },
+        onError: (err: any) => {
+            alert(`Failed to update status: ${err.message}`);
         }
     });
+
+    const deleteMutation = useMutation({
+        mutationFn: async (id: string) => {
+            const { error } = await supabase.from('investor_leads').delete().eq('id', id);
+            if (error) throw error;
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['admin-leads'] });
+        },
+        onError: (err: any) => {
+            alert(`Failed to delete lead: ${err.message}`);
+        }
+    });
+
+    const handleDelete = async (id: string) => {
+        if (window.confirm('Are you sure you want to delete this investor lead?')) {
+            deleteMutation.mutate(id);
+        }
+    };
 
     const statusConfig: Record<string, any> = {
         new: { icon: Clock, color: 'text-blue-600 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-500/10', border: 'border-blue-100 dark:border-blue-500/20' },
@@ -51,7 +73,6 @@ export const InvestorLeads = () => {
                                 <th className="px-10 py-8">Investor Identity</th>
                                 <th className="px-10 py-8">Capital Commitment</th>
                                 <th className="px-10 py-8">Status</th>
-                                <th className="px-10 py-8">Ingestion Date</th>
                                 <th className="px-10 py-8 text-right">Operations</th>
                             </tr>
                         </thead>
@@ -111,23 +132,26 @@ export const InvestorLeads = () => {
                                             </div>
                                         )}
                                     </td>
-                                    <td className="px-10 py-8">
-                                        <div className="flex items-center gap-2 text-[10px] font-black text-slate-300 dark:text-slate-700 uppercase tracking-widest">
-                                            <Calendar size={12} className="text-slate-200 dark:text-slate-800" />
-                                            {new Date(lead.created_at).toLocaleDateString()}
-                                        </div>
-                                    </td>
                                     <td className="px-10 py-8 text-right">
-                                        <select
-                                            className="bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded-xl px-4 py-2 text-[9px] uppercase tracking-[0.2em] font-black text-slate-600 dark:text-slate-400 focus:outline-none focus:border-brand-gold focus:ring-4 focus:ring-brand-gold/5 transition-all shadow-sm"
-                                            value={lead.status}
-                                            onChange={(e) => updateStatusMutation.mutate({ id: lead.id, status: e.target.value })}
-                                        >
-                                            <option value="new">Mark New</option>
-                                            <option value="contacted">Mark Contacted</option>
-                                            <option value="converted">Mark Converted</option>
-                                            <option value="rejected">Mark Rejected</option>
-                                        </select>
+                                        <div className="flex items-center justify-end gap-4">
+                                            <select
+                                                className="bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded-xl px-4 py-2 text-[9px] uppercase tracking-[0.2em] font-black text-slate-600 dark:text-slate-400 focus:outline-none focus:border-brand-gold focus:ring-4 focus:ring-brand-gold/5 transition-all shadow-sm"
+                                                value={lead.status}
+                                                onChange={(e) => updateStatusMutation.mutate({ id: lead.id, status: e.target.value })}
+                                            >
+                                                <option value="new">New</option>
+                                                <option value="contacted">Contacted</option>
+                                                <option value="converted">Converted</option>
+                                                <option value="rejected">Rejected</option>
+                                            </select>
+                                            <button
+                                                onClick={() => handleDelete(lead.id)}
+                                                className="p-3 bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded-xl text-slate-300 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 transition-all"
+                                                title="Delete Lead"
+                                            >
+                                                <Trash2 size={16} />
+                                            </button>
+                                        </div>
                                     </td>
                                 </tr>
                             ))}

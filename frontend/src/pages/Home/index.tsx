@@ -1,13 +1,15 @@
 import { useQuery } from '@tanstack/react-query'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, lazy, Suspense } from 'react'
 import { supabase } from '../../lib/supabase'
 import { Hero } from './Hero'
 import { FilterBar } from './FilterBar'
 import { CarCard } from './CarCard'
 import { Skeleton } from '../../components/ui/Skeleton'
-import { PartnerSlider } from '../../components/home/PartnerSlider'
 import type { Car } from '../../types'
 import { DUMMY_CARS } from '../../constants/dummyData'
+
+// Lazy load PartnerSlider as it's below the fold
+const PartnerSlider = lazy(() => import('../../components/home/PartnerSlider').then(m => ({ default: m.PartnerSlider })))
 
 export const Home = () => {
     const [searchQuery, setSearchQuery] = useState('')
@@ -151,9 +153,9 @@ export const Home = () => {
                 )}
             </section>
 
-            <div>
+            <Suspense fallback={null}>
                 <PartnerSlider />
-            </div>
+            </Suspense>
         </div>
     )
 }

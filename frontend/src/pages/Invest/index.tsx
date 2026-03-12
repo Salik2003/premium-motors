@@ -44,7 +44,7 @@ export const Invest = () => {
             {/* Hero */}
             <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-brand-dark text-white">
                 <div className="absolute inset-0 opacity-30">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80" className="w-full h-full object-cover" alt="Investment Background" />
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80" loading="lazy" className="w-full h-full object-cover" alt="Investment Background" />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand-dark/80" />
 
@@ -123,6 +123,7 @@ export const Invest = () => {
                                 <div className="flex-1 relative overflow-hidden min-h-[300px] md:min-h-auto">
                                     <img
                                         src={pkg.image}
+                                        loading="lazy"
                                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                         alt={pkg.title}
                                     />

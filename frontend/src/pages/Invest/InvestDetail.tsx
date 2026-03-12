@@ -118,7 +118,7 @@ export const InvestDetail = () => {
                 </div>
 
                 <div className="aspect-[4/5] lg:aspect-square rounded-[4rem] overflow-hidden shadow-2xl relative group">
-                    <img src={data.heroImage} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt={data.title} />
+                    <img src={data.heroImage} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt={data.title} />
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 to-transparent" />
                     <div className="absolute bottom-12 left-12 right-12">
                         <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-3xl space-y-4">
@@ -201,7 +201,7 @@ export const InvestDetail = () => {
                         {DUMMY_CARS.slice(0, 6).map(car => (
                             <Link to={`/cars/${slugify(car.title)}--${car.id}`} key={car.id} className="group bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-2 transition-all duration-700">
                                 <div className="aspect-[16/10] overflow-hidden relative">
-                                    <img src={car.images[0]} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt={car.title} />
+                                    <img src={car.images[0]} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt={car.title} />
                                     <div className="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[8px] font-black uppercase tracking-widest text-brand-dark">
                                         PKR {(car.price / 1000000).toFixed(1)}M
                                     </div>

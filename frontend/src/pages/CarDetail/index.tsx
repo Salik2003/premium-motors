@@ -131,7 +131,7 @@ Is this vehicle still available?`;
                                         : 'border border-slate-100 hover:border-brand-gold/50'
                                         }`}
                                 >
-                                    <img src={img} alt={`Gallery ${i}`} className="w-full h-full object-cover" />
+                                    <img src={img} alt={`Gallery ${i}`} loading="lazy" className="w-full h-full object-cover" />
                                 </div>
                             ))}
                         </div>
