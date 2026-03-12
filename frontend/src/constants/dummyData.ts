@@ -3,6 +3,8 @@ import c5 from '../assets/c5.jpg';
 import tesla from '../assets/tesla.webp';
 import nissan from '../assets/leaf.jpg';
 import kona from '../assets/kuna.avif';
+import byd from '../assets/byd.jpg';
+import kia from '../assets/kia.png';
 
 export const DUMMY_CARS: Car[] = [
     {
@@ -15,7 +17,7 @@ export const DUMMY_CARS: Car[] = [
         fuel_type: 'Hybrid (Petrol/Electric)',
         transmission: 'Automatic',
         description: 'Advanced comfort SUV with plug-in hybrid efficiency. Featuring progressive hydraulic cushions and executive interior.',
-        images: [c5], // Using existing assets as requested
+        images: [c5],
         status: 'active',
         is_featured: true,
         created_at: new Date().toISOString(),
@@ -52,6 +54,29 @@ export const DUMMY_CARS: Car[] = [
         view_count: 89
     },
     {
+        id: 'kianiro',
+        title: 'Kia Niro Hybrid',
+        model: 'Niro',
+        year: 2023,
+        price: 24000,
+        mileage: 45000,
+        fuel_type: 'Hybrid',
+        transmission: 'Automatic',
+        description: 'The Kia Niro is a stylish and efficient hybrid crossover, perfect for urban environments.',
+        images: [kia],
+        status: 'active',
+        is_featured: true,
+        created_at: new Date().toISOString(),
+        city: 'Lisbon',
+        condition: 'New',
+        engine_cc: 1600,
+        num_owners: 0,
+        make: 'Kia',
+        color: 'Ocean Blue',
+        registered_in: 'Portugal',
+        view_count: 120
+    },
+    {
         id: '3',
         title: 'Tesla Model 3',
         model: 'Model 3',
@@ -73,6 +98,29 @@ export const DUMMY_CARS: Car[] = [
         color: 'Solid Black',
         registered_in: 'Portugal',
         view_count: 210
+    },
+    {
+        id: 'bydatto3',
+        title: 'BYD Atto 3',
+        model: 'Atto 3',
+        year: 2023,
+        price: 21000,
+        mileage: 12000,
+        fuel_type: 'Electric',
+        transmission: 'Automatic',
+        description: 'Premium electric SUV from BYD, featuring innovative battery technology and a futuristic interior.',
+        images: [byd],
+        status: 'active',
+        is_featured: true,
+        created_at: new Date().toISOString(),
+        city: 'Lisbon',
+        condition: 'New',
+        engine_cc: 0,
+        num_owners: 0,
+        make: 'BYD',
+        color: 'Silver Grey',
+        registered_in: 'Portugal',
+        view_count: 145
     },
     {
         id: '4',
