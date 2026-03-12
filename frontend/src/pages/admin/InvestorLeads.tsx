@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { supabase } from '../../lib/supabase'
-import { CheckCircle, Clock, XCircle, Phone, MapPin, DollarSign, Calendar, AlertCircle, Trash2 } from 'lucide-react'
+import { CheckCircle, Clock, XCircle, Phone, MapPin, DollarSign, AlertCircle, Trash2 } from 'lucide-react'
 import type { InvestorLead } from '../../types'
 
 export const InvestorLeads = () => {
