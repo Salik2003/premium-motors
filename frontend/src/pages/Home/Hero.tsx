@@ -20,7 +20,7 @@ export const Hero = () => {
                 <div className="space-y-4 md:space-y-6">
                     <div className="inline-flex items-center gap-3 px-4 py-1.5 md:py-2 bg-brand-gold/20 backdrop-blur-md border border-brand-gold/30 rounded-full">
                         <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse shadow-[0_0_10px_rgba(197,160,89,0.8)]" />
-                        <h2 className="text-white text-[7px] md:text-[9px] uppercase tracking-[0.4em] md:tracking-[0.5em] font-black italic">THE GOLD STANDARD OF PAKISTAN</h2>
+                        <h2 className="text-white text-[7px] md:text-[9px] uppercase tracking-[0.4em] md:tracking-[0.5em] font-black italic">THE GOLD STANDARD OF PORTUGAL</h2>
                     </div>
                     <h1 className="text-3xl md:text-5xl lg:text-7xl font-serif text-white leading-[1.2] tracking-tight drop-shadow-2xl">
                         Acquire Your <br />

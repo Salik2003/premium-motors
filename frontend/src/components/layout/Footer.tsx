@@ -18,7 +18,7 @@ export const Footer = () => {
                             </div>
                         </Link>
                         <p className="text-sm text-slate-500 leading-relaxed font-medium">
-                            Pakistan's premier luxury automotive marketplace. We curate the finest vehicles for the discerning enthusiast.
+                            Portugal's premier luxury automotive marketplace. We curate the finest vehicles for the discerning enthusiast.
                         </p>
                         <div className="flex gap-4">
                             {[Instagram, Facebook, Twitter].map((Icon, i) => (

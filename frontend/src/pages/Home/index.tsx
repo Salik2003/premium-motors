@@ -15,7 +15,7 @@ const PartnerSlider = lazy(() => import('../../components/home/PartnerSlider').t
 export const Home = () => {
     useSEO({
         title: 'Boutique Automotive Registry',
-        description: 'Explore Vamo Drive\'s curated selection of the finest luxury vehicles and exclusive direct marketplace in Pakistan.'
+        description: 'Explore Vamo Drive\'s curated selection of the finest luxury vehicles and exclusive direct marketplace in Portugal.'
     });
 
     const [searchQuery, setSearchQuery] = useState('')
