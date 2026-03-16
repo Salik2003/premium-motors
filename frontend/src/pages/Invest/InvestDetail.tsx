@@ -21,7 +21,7 @@ const investmentDetails: Record<string, any> = {
 export const InvestDetail = () => {
     const { id } = useParams()
     const data = id ? investmentDetails[id] : null
-    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+923132723938';
+    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+351937825370';
 
     if (!data) return (
         <div className="pt-40 text-center space-y-8">

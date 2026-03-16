@@ -9,7 +9,7 @@ interface CarCardProps {
 }
 
 export const CarCard = ({ car }: CarCardProps) => {
-    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+923132723938';
+    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+351937825370';
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hi, I'm interested in the ${car.make} ${car.model} (${car.year}) priced at €${car.price.toLocaleString()}.`)}`;
 
     const carSlug = `${slugify(car.title)}--${car.id}`;

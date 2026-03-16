@@ -16,7 +16,7 @@ export const WhatsAppIcon = ({ size = 24, className = "" }: { size?: number; cla
 );
 
 export const MainLayout = () => {
-    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+923132723938';
+    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+351937825370';
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'm looking for a premium car or investment opportunity.")}`;
 
     return (

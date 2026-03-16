@@ -82,7 +82,7 @@ const tours = [
 ]
 
 export const Travel = () => {
-    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+923132723938';
+    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+351937825370';
 
     return (
         <div className="min-h-screen bg-white">

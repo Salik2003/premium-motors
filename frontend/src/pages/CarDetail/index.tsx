@@ -53,7 +53,7 @@ Listing Link: ${window.location.href}
 
 Is this vehicle still available?`;
 
-        const whatsappUrl = `https://wa.me/+923132723938?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/+351937825370?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
     };
 
@@ -199,7 +199,7 @@ Is this vehicle still available?`;
                                         PM
                                     </div>
                                     <div>
-                                        <p className="text-xs font-bold text-slate-900">Premium Motors</p>
+                                        <p className="text-xs font-bold text-slate-900">Vamo Drive</p>
                                         <div className="flex items-center gap-1 text-[9px] text-brand-gold font-bold uppercase tracking-widest">
                                             <ShieldCheck size={10} /> Certified Boutique
                                         </div>

@@ -64,8 +64,8 @@ export const AdminLayout = () => {
                     </div>
                     {(!isCollapsed || isMobile) && (
                         <div className="animate-in fade-in slide-in-from-left-2 duration-500">
-                            <span className="block text-xs font-serif font-black tracking-widest text-slate-900 dark:text-white leading-none">PREMIUM</span>
-                            <span className="block text-[8px] font-bold tracking-[0.3em] text-brand-gold uppercase italic mt-1 leading-none">Management</span>
+                            <span className="block text-xs font-serif font-black tracking-widest text-slate-900 dark:text-white leading-none">VAMO</span>
+                            <span className="block text-[8px] font-bold tracking-[0.3em] text-brand-gold uppercase italic mt-1 leading-none">Drive</span>
                         </div>
                     )}
                 </Link>

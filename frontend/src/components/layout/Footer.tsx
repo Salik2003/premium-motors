@@ -10,11 +10,11 @@ export const Footer = () => {
                     <div className="space-y-8">
                         <Link to="/" className="flex items-center gap-3 group">
                             <div className="w-10 h-10">
-                                <img src={pmLogo} alt="Premium Motors Logo" className="w-full h-full object-contain" />
+                                <img src={pmLogo} alt="Vamo Drive Logo" className="w-full h-full object-contain" />
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-sm font-serif font-black tracking-[0.1em] text-brand-dark leading-none uppercase">PREMIUM</span>
-                                <span className="text-[7px] font-bold tracking-[0.3em] text-brand-gold uppercase leading-none mt-1">Motors</span>
+                                <span className="text-sm font-serif font-black tracking-[0.1em] text-brand-dark leading-none uppercase">VAMO</span>
+                                <span className="text-[7px] font-bold tracking-[0.3em] text-brand-gold uppercase leading-none mt-1">Drive</span>
                             </div>
                         </Link>
                         <p className="text-sm text-slate-500 leading-relaxed font-medium">
@@ -52,13 +52,19 @@ export const Footer = () => {
                         <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand-dark mb-8">Contact</h4>
                         <ul className="space-y-6">
                             {[
-                                { icon: Phone, text: '+92 313 2723938' },
-                                { icon: Mail, text: 'info@premiummotors.pk' },
-                                { icon: MapPin, text: 'Main Boulevard, Gulberg III, Lahore' },
+                                { icon: Phone, text: '+351 937 825 370' },
+                                { icon: Mail, text: 'largerthoughs@gmail.com' },
+                                { icon: MapPin, text: 'parceta sao jorge de mina lisbon' },
                             ].map((item, i) => (
                                 <li key={i} className="flex items-start gap-4">
                                     <item.icon size={18} className="text-brand-gold shrink-0" strokeWidth={1.5} />
-                                    <span className="text-sm text-slate-500 font-medium">{item.text}</span>
+                                    {item.icon === Mail ? (
+                                        <a href={`mailto:${item.text}`} className="text-sm text-slate-500 hover:text-brand-gold transition-colors font-medium">{item.text}</a>
+                                    ) : item.icon === Phone ? (
+                                        <a href={`tel:${item.text.replace(/\s+/g, '')}`} className="text-sm text-slate-500 hover:text-brand-gold transition-colors font-medium">{item.text}</a>
+                                    ) : (
+                                        <span className="text-sm text-slate-500 font-medium">{item.text}</span>
+                                    )}
                                 </li>
                             ))}
                         </ul>
@@ -82,7 +88,7 @@ export const Footer = () => {
 
                 <div className="mt-20 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4 relative">
                     <p className="text-xs text-slate-400 font-medium">
-                        © {new Date().getFullYear()} Premium Motors. All rights reserved.
+                        © {new Date().getFullYear()} Vamo Drive. All rights reserved.
                     </p>
                     <div className="flex gap-8 items-center">
                         <a href="#" className="text-xs text-slate-400 hover:text-brand-gold transition-colors font-medium">Privacy Policy</a>

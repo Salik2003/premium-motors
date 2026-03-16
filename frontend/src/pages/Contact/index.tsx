@@ -94,7 +94,7 @@ export const Contact = () => {
                                 </div>
                                 <div className="space-y-1">
                                     <p className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Direct Line</p>
-                                    <p className="text-xl font-serif text-slate-900">+92 313 2723938</p>
+                                    <a href="tel:+351937825370" className="text-xl font-serif text-slate-900 hover:text-brand-gold transition-colors">+351 937 825 370</a>
                                 </div>
                             </div>
 
@@ -114,7 +114,7 @@ export const Contact = () => {
                                 </div>
                                 <div className="space-y-1">
                                     <p className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Email Desk</p>
-                                    <p className="text-xl font-serif text-slate-900">sales@premium.pk</p>
+                                    <a href="mailto:largerthoughs@gmail.com" className="text-xl font-serif text-slate-900 hover:text-brand-gold transition-colors">largerthoughs@gmail.com</a>
                                 </div>
                             </div>
 
@@ -124,7 +124,7 @@ export const Contact = () => {
                                 </div>
                                 <div className="space-y-1">
                                     <p className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Showroom</p>
-                                    <p className="text-sm font-serif text-slate-900 leading-tight">Gulberg III, Main Boulevard, Lahore, Pakistan</p>
+                                    <p className="text-sm font-serif text-slate-900 leading-tight">parceta sao jorge de mina lisbon</p>
                                 </div>
                             </div>
                         </div>
@@ -212,7 +212,7 @@ export const Contact = () => {
             {/* Map */}
             <section className="h-[500px] w-full border-t border-slate-100 overflow-hidden relative">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108914.88126765792!2d74.19548679726563!3d31.520369599999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391901a432b1356b%3A0x66849ca477444850!2sGulberg%20III%2C%20Lahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1710000000000!5m2!1sen!2s"
+                    src="https://maps.google.com/maps?q=Praceta%20São%20Jorge%20de%20Mina,%20Lisbon&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}

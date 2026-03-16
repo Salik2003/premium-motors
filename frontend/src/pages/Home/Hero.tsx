@@ -9,7 +9,9 @@ export const Hero = () => {
                     playsInline
                     preload="none"
                     className="w-full h-full object-cover"
+                    poster="/videos/video-cover.jpg"
                 >
+                    <source src="/videos/hero-sec-video.webm" type="video/webm" />
                     <source src="/videos/hero-sec-video.mp4" type="video/mp4" />
                 </video>
             </div>

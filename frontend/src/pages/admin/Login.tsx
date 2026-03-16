@@ -38,7 +38,7 @@ export const Login = () => {
                 <div className="text-center space-y-3 md:space-y-4">
                     <div className="inline-flex p-3 md:p-4 bg-white rounded-[2rem] shadow-2xl shadow-slate-200 border border-slate-100 mb-1 group hover:scale-105 transition-transform duration-500">
                         <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center p-1.5 rounded-2xl">
-                            <img src={pmLogo} alt="Premium Motors Logo" className="w-full h-full object-contain" />
+                            <img src={pmLogo} alt="Vamo Drive Logo" className="w-full h-full object-contain" />
                         </div>
                     </div>
                     <div>
@@ -60,7 +60,7 @@ export const Login = () => {
                         <div className="space-y-4 md:space-y-6">
                             <Input
                                 label="Security Email"
-                                placeholder="ADMIN@PREMIUMMOTORS.PK"
+                                placeholder="ADMIN@VAMODRIVE.COM"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required

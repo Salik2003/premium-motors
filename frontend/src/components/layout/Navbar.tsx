@@ -26,11 +26,11 @@ export const Navbar = () => {
         <nav className="fixed top-0 left-0 right-0 z-[100] border-b border-slate-100 bg-white md:bg-white/90 md:backdrop-blur-md px-4 md:px-12 py-3 flex items-center justify-between transition-all duration-300">
             <Link to="/" className="flex items-center gap-2 group relative z-[110]" data-aos="fade-right">
                 <div className="w-8 h-8 md:w-10 md:h-10 transition-transform duration-500 group-hover:scale-110">
-                    <img src={pmLogo} alt="Premium Motors Logo" fetchPriority="high" className="w-full h-full object-contain" />
+                    <img src={pmLogo} alt="Vamo Drive Logo" fetchPriority="high" className="w-full h-full object-contain" />
                 </div>
                 <div className="flex flex-col">
-                    <span className="text-sm md:text-lg font-serif font-black tracking-[0.1em] text-brand-dark leading-none">PREMIUM</span>
-                    <span className="text-[7px] md:text-[10px] font-bold tracking-[0.3em] text-brand-gold uppercase leading-none mt-1">Motors</span>
+                    <span className="text-sm md:text-lg font-serif font-black tracking-[0.1em] text-brand-dark leading-none">VAMO</span>
+                    <span className="text-[7px] md:text-[10px] font-bold tracking-[0.3em] text-brand-gold uppercase leading-none mt-1">Drive</span>
                 </div>
             </Link>
 
@@ -86,7 +86,7 @@ export const Navbar = () => {
                         <Link to="/contact" className="block w-full text-center bg-brand-gold text-white py-4 rounded-2xl font-black uppercase tracking-widest text-[10px] shadow-xl shadow-brand-gold/20">
                             Book Inspection
                         </Link>
-                        <a href="tel:+923132723938" className="flex items-center justify-center gap-3 w-full text-center border border-slate-100 py-4 rounded-2xl font-black uppercase tracking-widest text-[10px] text-slate-500">
+                        <a href="tel:+351937825370" className="flex items-center justify-center gap-3 w-full text-center border border-slate-100 py-4 rounded-2xl font-black uppercase tracking-widest text-[10px] text-slate-500">
                             <Phone size={14} /> Contact Support
                         </a>
                     </div>
