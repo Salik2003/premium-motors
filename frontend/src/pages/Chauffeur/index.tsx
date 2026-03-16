@@ -1,5 +1,6 @@
 import { Clock, CheckCircle2, ChevronRight, UserCheck, ShieldCheck } from 'lucide-react'
 import { WhatsAppIcon } from '../../components/layout/MainLayout'
+import { useSEO } from '../../hooks/useSEO'
 
 const plans = [
     {
@@ -30,6 +31,11 @@ const plans = [
 ]
 
 export const Chauffeur = () => {
+    useSEO({
+        title: 'Chauffeur Services',
+        description: 'Hire verified professional chauffeurs and premium luxury cars driving across Portugal with Vamo Drive.'
+    });
+
     const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+351937825370';
 
     return (

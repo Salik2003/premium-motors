@@ -1,5 +1,6 @@
 import { Clock, Palmtree, TowerControl as Tower, Ship } from 'lucide-react'
 import { WhatsAppIcon } from '../../components/layout/MainLayout'
+import { useSEO } from '../../hooks/useSEO'
 import lisbon from "../../assets/lisbon.avif"
 import porto from "../../assets/port-wine.webp"
 import sintra from "../../assets/Sintra.jpg"
@@ -82,6 +83,11 @@ const tours = [
 ]
 
 export const Travel = () => {
+    useSEO({
+        title: 'Premium Travel Tours',
+        description: 'Explore curated private tours in Lisbon, Sintra, and the Algarve with Vamo Drive.'
+    });
+
     const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+351937825370';
 
     return (

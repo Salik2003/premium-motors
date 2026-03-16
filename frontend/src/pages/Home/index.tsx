@@ -7,11 +7,17 @@ import { CarCard } from './CarCard'
 import { Skeleton } from '../../components/ui/Skeleton'
 import type { Car } from '../../types'
 import { DUMMY_CARS } from '../../constants/dummyData'
+import { useSEO } from '../../hooks/useSEO'
 
 // Lazy load PartnerSlider as it's below the fold
 const PartnerSlider = lazy(() => import('../../components/home/PartnerSlider').then(m => ({ default: m.PartnerSlider })))
 
 export const Home = () => {
+    useSEO({
+        title: 'Boutique Automotive Registry',
+        description: 'Explore Vamo Drive\'s curated selection of the finest luxury vehicles and exclusive direct marketplace in Pakistan.'
+    });
+
     const [searchQuery, setSearchQuery] = useState('')
     const [activeFilters, setActiveFilters] = useState<Record<string, string>>({})
     const [sortOrder, setSortOrder] = useState('newest')

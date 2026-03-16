@@ -2,6 +2,7 @@ import { ArrowRight, TrendingUp, ChevronRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import lp from "../../assets/BYD & Tesla.png"
 import cp from "../../assets/comfort-package.avif"
+import { useSEO } from '../../hooks/useSEO'
 
 const investmentPackages = [
     {
@@ -35,6 +36,11 @@ const procedureSteps = [
 ]
 
 export const Invest = () => {
+    useSEO({
+        title: 'Investment Packages',
+        description: 'Explore asset-backed hybrid and high-yield fleet investment opportunities at Vamo Drive.'
+    });
+
     return (
         <div className="min-h-screen bg-white">
             {/* Hero */}

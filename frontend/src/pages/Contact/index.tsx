@@ -3,8 +3,14 @@ import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle2 } from 'lucide-r
 import { Button } from '../../components/ui/Button'
 import { Input } from '../../components/ui/Input'
 import { supabase } from '../../lib/supabase'
+import { useSEO } from '../../hooks/useSEO'
 
 export const Contact = () => {
+    useSEO({
+        title: 'Contact Us',
+        description: 'Get in touch with Vamo Drive for car inquiries, support, or investment opportunities.'
+    });
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
