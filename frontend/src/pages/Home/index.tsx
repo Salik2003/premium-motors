@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { useState, useMemo, lazy } from 'react'
+import { useState, useMemo } from 'react'
 import { supabase } from '../../lib/supabase'
 import { Hero } from './Hero'
 import { FilterBar } from './FilterBar'
