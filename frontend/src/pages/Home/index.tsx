@@ -159,9 +159,9 @@ export const Home = () => {
                 )}
             </section>
 
-            <Suspense fallback={null}>
+            {/* <Suspense fallback={null}>
                 <PartnerSlider />
-            </Suspense>
+            </Suspense> */}
         </div>
     )
 }

@@ -139,16 +139,12 @@ export const Contact = () => {
                             <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold text-brand-gold italic">Operating Hours</h4>
                             <div className="space-y-4">
                                 <div className="flex justify-between border-b border-white/5 pb-2">
-                                    <span className="text-[9px] uppercase tracking-widest text-white/40 font-bold">Mon - Fri</span>
-                                    <span className="text-[9px] uppercase tracking-widest font-bold">09:00 - 20:00</span>
-                                </div>
-                                <div className="flex justify-between border-b border-white/5 pb-2">
-                                    <span className="text-[9px] uppercase tracking-widest text-white/40 font-bold">Saturday</span>
-                                    <span className="text-[9px] uppercase tracking-widest font-bold">10:00 - 18:00</span>
+                                    <span className="text-[9px] uppercase tracking-widest text-white/40 font-bold">Mon - Sat</span>
+                                    <span className="text-[9px] uppercase tracking-widest font-bold">24 Hours</span>
                                 </div>
                                 <div className="flex justify-between">
                                     <span className="text-[9px] uppercase tracking-widest text-white/40 font-bold">Sunday</span>
-                                    <span className="text-[9px] uppercase tracking-widest font-bold text-brand-gold">Appointment Only</span>
+                                    <span className="text-[9px] uppercase tracking-widest font-bold text-slate-400">OFF</span>
                                 </div>
                             </div>
                         </div>
