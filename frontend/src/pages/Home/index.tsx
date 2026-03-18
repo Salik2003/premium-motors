@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { useState, useMemo, lazy, Suspense } from 'react'
+import { useState, useMemo, lazy } from 'react'
 import { supabase } from '../../lib/supabase'
 import { Hero } from './Hero'
 import { FilterBar } from './FilterBar'
@@ -10,7 +10,7 @@ import { DUMMY_CARS } from '../../constants/dummyData'
 import { useSEO } from '../../hooks/useSEO'
 
 // Lazy load PartnerSlider as it's below the fold
-const PartnerSlider = lazy(() => import('../../components/home/PartnerSlider').then(m => ({ default: m.PartnerSlider })))
+// const PartnerSlider = lazy(() => import('../../components/home/PartnerSlider').then(m => ({ default: m.PartnerSlider })))
 
 export const Home = () => {
     useSEO({
